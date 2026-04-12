@@ -61,6 +61,10 @@
                         'decrypt': 'decrypt 0.8s steps(10) forwards',
                         'cursor-blink': 'cursorBlink 1s step-end infinite',
                         'float-gentle': 'floatGentle 6s ease-in-out infinite',
+                        'float-drift-1': 'floatDrift1 10s ease-in-out infinite',
+                        'float-drift-2': 'floatDrift2 12s ease-in-out infinite',
+                        'float-drift-3': 'floatDrift3 15s ease-in-out infinite',
+                        'spin-slow': 'spin 3s linear infinite',
                     },
                     keyframes: {
                         floatGentle: {
@@ -150,6 +154,18 @@
                         cursorBlink: {
                             '0%, 100%': { opacity: '1' },
                             '50%': { opacity: '0' }
+                        },
+                        floatDrift1: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(-10px, -20px) rotate(1deg)' },
+                        },
+                        floatDrift2: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(15px, 10px) rotate(-1deg)' },
+                        },
+                        floatDrift3: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg)' },
+                            '50%': { transform: 'translate(-5px, 25px) rotate(2deg)' },
                         }
                     }
                 },
@@ -162,6 +178,34 @@
             background-color: #0b0d0e;
             color: white;
             overflow-x: hidden;
+        }
+
+        /* The glass-morphism effect for the panels */
+        .manifest-panel {
+            background: rgba(11, 13, 14, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(20, 184, 184, 0.2);
+        }
+
+        .manifest-panel:hover {
+            border-color: rgba(20, 184, 184, 0.6);
+            box-shadow: 0 0 20px rgba(20, 184, 184, 0.1);
+        }
+
+        /* The specialized labels for MedComms/Tech/Marketing */
+        .data-tag {
+            font-family: monospace;
+            padding: 2px 8px;
+            background: rgba(20, 184, 184, 0.1);
+            border-left: 2px solid #14b8b8;
+            font-size: 11px;
+            color: #14b8b8;
+            white-space: nowrap;
+        }
+
+        /* The specialized glow effect on the "05+" text */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(20, 184, 184, 0.5);
         }
         body.modal-open, body.menu-open {
             overflow: hidden;
@@ -712,84 +756,119 @@
             <div
                 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] pointer-events-none">
             </div>
-
             <div class="relative w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                <div class="lg:col-span-9 flex flex-col gap-6 z-10">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 border border-primary/30 bg-primary/5 w-fit rounded text-xs tracking-widest text-primary">
+                <div class="lg:col-span-6 flex flex-col gap-6 z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 border border-primary/30 bg-primary/5 w-fit rounded text-xs tracking-widest text-primary"
+                        style="">
                         <span class="w-2 h-2 rounded-full bg-primary animate-heartbeat"></span>
                         SYSTEM ONLINE v2.4
                     </div>
-
-                    <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tighter uppercase select-none">
+                    <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tighter uppercase select-none"
+                        style="">
                         <div class="reactive-glitch-wrapper">
                             <span
-                                class="base-text block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">HI,
-                                I’M ERICKA</span>
-                            <span class="glitch-layer glitch-layer-1" data-text="HI, I’M ERICKA">HI, I’M ERICKA</span>
-                            <span class="glitch-layer glitch-layer-2" data-text="HI, I’M ERICKA">HI, I’M ERICKA</span>
+                                class="base-text block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400"
+                                style="">HI, I’M ERICKA</span>
+                            <span class="glitch-layer glitch-layer-1" data-text="HI, I’M ERICKA" style="">HI, I’M
+                                ERICKA</span>
+                            <span class="glitch-layer glitch-layer-2" data-text="HI, I’M ERICKA" style="">HI, I’M
+                                ERICKA</span>
                         </div>
-                        <br />
+                        <br>
                         <div class="glitch-container">
                             <span class="hero-title-glitch text-primary glow-text block animate-heavy-glitch"
-                                data-text="Creative Technologist">
-                                CREATIVE TECHNOLOGIST
-                            </span>
+                                data-text="Creative Operator" style="">CREATIVE TECH</span>
                         </div>
                     </h1>
-
-                    <p
-                        class="text-gray-400 text-lg md:text-xl max-w-2xl font-light border-l-2 border-primary/50 pl-6 py-2 bg-gradient-to-r from-primary/5 to-transparent">
-                        Turning <span class="font-black">business ideas into functional digital products</span>
-                        through <span class="font-black">Technical R&D</span>.
-                        Initializing <span class="font-black">AR prototypes</span>,
-                        <span class="font-black">marketing campaigns</span>, and
-                        <span class="font-black">UI/UX systems</span>—all supercharged by
-                        <span class="font-black">AI operations</span> and
-                        <span class="font-black">automation</span>.
+                    <p class="text-gray-400 text-lg md:text-xl max-w-xl font-light border-l-2 border-primary/50 pl-6 py-2 bg-gradient-to-r from-primary/5 to-transparent"
+                        style="">
+                        Architecting the future of yesterday. Initializing visual sequences and deploying high-fidelity
+                        user experiences.
                     </p>
-
                     <div class="flex flex-wrap gap-4 mt-4">
                         <button
-                            class="relative overflow-hidden bg-primary text-background-dark font-bold text-lg px-8 py-3 rounded-none shadow-retro hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all uppercase tracking-widest">
+                            class="relative overflow-hidden bg-primary text-background-dark font-bold text-lg px-8 py-3 rounded-none shadow-retro hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all uppercase tracking-widest"
+                            style="">
                             Initiate Sequence
                         </button>
                         <button
-                            class="relative overflow-hidden border border-white/20 text-white font-medium text-lg px-8 py-3 rounded-none hover:bg-white/5 transition-all uppercase tracking-widest flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">download</span>
+                            class="relative overflow-hidden border border-white/20 text-white font-medium text-lg px-8 py-3 rounded-none hover:bg-white/5 transition-all uppercase tracking-widest flex items-center gap-2"
+                            style="">
+                            <span class="material-symbols-outlined text-sm" style="">download</span>
                             Download Data
                         </button>
                     </div>
                 </div>
-
-                <div class="lg:col-span-3 relative group">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-40 group-hover:opacity-75 transition duration-1000 group-hover:duration-200">
-                    </div>
-                    <div
-                        class="relative aspect-square md:aspect-[4/5] w-full overflow-hidden rounded-lg border border-primary/50 bg-surface-dark shadow-2xl animate-float-gentle">
-                        <div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-screen"
-                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDUVDJzT9a6zoFYWPI9ZgsBYJBS0t24w99qnndD7yann-wHTQpWZbDdf985ktgK5CqMuDPtWatQc_GSxs9-CULy7eg8Co9y62T0ZtsNVzB5UzMVrfBDW6ymkWDh5Yd3IbBzH9q_lXZdRbiGcbZcx6OJn23AH9zfEPMPIQ2ZMdtpvNSJ5DfiPlFLT1MPqvofZJPDDMcue8jgSMWO5rr5-D1CCNSGnE9VlzrGmB1TtoR8fcPTxl0TST7G3NHwegDMhyf3OpwmM4j_kD0");'>
+                <div class="lg:col-span-6 relative flex items-center justify-center min-h-[500px]">
+                    <div class="relative w-full h-full max-w-md aspect-square">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                            <div
+                                class="w-[125%] aspect-square border border-primary/10 rounded-full animate-float-drift-3 opacity-70 shrink-0">
+                            </div>
                         </div>
-                        <div
-                            class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-                            <div class="flex justify-between items-end border-t border-primary/30 pt-4">
-                                <div>
-                                    <p class="text-xs text-primary mb-1">CURRENT_STATUS</p>
-                                    <p class="text-xl font-bold hover-glitch cursor-default">AVAILABLE_FOR_HIRE</p>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-8 z-10">
+                            <div class="manifest-panel p-10 relative group animate-float-drift-1 shrink-0">
+                                <div class="absolute -top-3 -left-3 px-2 py-1 bg-primary text-black font-mono text-[10px] font-bold tracking-tighter"
+                                    style="">YEARS OF EXPERIENCE</div>
+                                <div
+                                    class="absolute inset-0 border border-primary/30 opacity-50 group-hover:opacity-100 transition-opacity">
                                 </div>
-                                <span
-                                    class="material-symbols-outlined text-primary text-3xl animate-spin-slow">settings</span>
+                                <div class="text-center">
+                                    <p class="text-[10px] font-mono text-primary/60 uppercase tracking-[0.4em] mb-2"
+                                        style="">Operation_Timeframe</p>
+                                    <h2 class="text-7xl md:text-8xl font-black text-white glow-text leading-none shadow-cyan-glow tracking-tighter"
+                                        style="">05+<span class="text-2xl font-bold align-top ml-1 text-primary"
+                                            style="">YRS</span></h2>
+                                </div>
+                            </div>
+                            <div class="manifest-panel p-6 w-full animate-float-drift-2 shrink-0">
+                                <div class="flex justify-between items-center mb-4 border-b border-primary/20 pb-2">
+                                    <span class="text-[9px] font-mono text-primary/80" style="">SECTOR_MAPPING</span>
+                                    <span class="material-symbols-outlined text-xs text-primary animate-pulse"
+                                        style="">radar</span>
+                                </div>
+                                <div class="flex flex-wrap gap-3">
+                                    <div class="data-tag" style="">Medical Communications</div>
+                                    <div class="data-tag" style="">Tech</div>
+                                    <div class="data-tag" style="">Marketing</div>
+                                </div>
+                            </div>
+                            <div
+                                class="manifest-panel p-6 w-[85%] self-end animate-float-drift-3 relative overflow-visible shrink-0">
+                                <div class="absolute top-0 right-0 p-2">
+                                    <div class="w-1.5 h-1.5 bg-secondary rounded-full animate-ping"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <span class="text-[9px] font-mono text-secondary uppercase tracking-widest"
+                                        style=""><b data-path-to-node="6" data-index-in-node="115">PIPELINES //</b> AR /
+                                        R&amp;D / AI / DesignOps</span>
+                                </div>
+                                <div class="space-y-3 font-mono text-[11px]">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-1 h-1 bg-secondary"></span>
+                                        <span class="text-gray-300" style="">AR / R&amp;D</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-1 h-1 bg-secondary"></span>
+                                        <span class="text-gray-300" style="">AI Workflows</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-1 h-1 bg-secondary"></span>
+                                        <span class="text-gray-300" style="">DesignOps</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary/40 to-transparent">
+                                </div>
                             </div>
                         </div>
                         <div
-                            class="absolute top-0 left-0 w-full h-1 bg-primary/50 shadow-[0_0_10px_rgba(20,184,184,0.8)] animate-[scanline_3s_linear_infinite]">
+                            class="absolute -top-10 -right-4 manifest-panel px-4 py-2 border-l-4 border-l-accent animate-pulse-slow">
+                            <span class="text-[10px] font-mono text-accent" style="">STATUS: ENHANCED</span>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
         <section class="py-24 bg-background-dark border-y border-primary/10 relative overflow-hidden" id="skills">
             <div class="absolute inset-0 opacity-10"
@@ -1972,6 +2051,14 @@
                     });
                 });
             });
+
+            // Trigger initial filtering state so the default tab applies its limits on load
+            const activeFilter = document.querySelector('.filter-btn.border-primary');
+            if (activeFilter) {
+                activeFilter.click();
+            } else if (filterButtons.length > 0) {
+                filterButtons[0].click();
+            }
         });
     </script>
 </body>
