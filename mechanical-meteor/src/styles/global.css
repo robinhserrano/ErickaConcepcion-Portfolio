@@ -1,0 +1,836 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #14b8b8;
+  --color-secondary: #d946ef;
+  --color-accent: #8b5cf6;
+  --color-background-light: #f6f8f8;
+  --color-background-dark: #0b0d0e;
+  --color-surface-dark: #161b1d;
+  --color-grid-line: #1f2937;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+
+  --shadow-neon: 0 0 5px var(--color-primary), 0 0 20px var(--color-primary);
+  --shadow-neon-secondary: 0 0 5px var(--color-secondary), 0 0 20px var(--color-secondary);
+  --shadow-neon-accent: 0 0 5px var(--color-accent), 0 0 20px var(--color-accent);
+  --shadow-retro: 4px 4px 0px var(--color-primary);
+
+  --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-heartbeat: heartbeat 2s ease-in-out infinite;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-scan-horizontal: scanHorizontal 3s linear infinite;
+  --animate-pixel-drift: pixelDrift 5s ease-in-out infinite;
+  --animate-glitch-text: glitchText 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+  --animate-grid-float: gridFloat 20s ease-in-out infinite;
+  --animate-grid-float-delayed: gridFloat 25s ease-in-out infinite reverse;
+  --animate-star-move-slow: starMove 60s linear infinite;
+  --animate-star-move-fast: starMove 30s linear infinite;
+  --animate-data-rain: dataRain 15s linear infinite;
+  --animate-vignette-breathe: vignetteBreathe 8s ease-in-out infinite;
+  --animate-heavy-glitch: heavyGlitch 4s step-end infinite;
+  --animate-heavy-glitch-after: heavyGlitchAfter 4s step-end infinite;
+  --animate-reactive-glitch-1: reactiveGlitch1 0.2s step-end infinite;
+  --animate-reactive-glitch-2: reactiveGlitch2 0.3s step-end infinite;
+  --animate-reactive-glitch-3: reactiveGlitch3 0.15s step-end infinite;
+  --animate-decrypt: decrypt 0.8s steps(10) forwards;
+  --animate-cursor-blink: cursorBlink 1s step-end infinite;
+  --animate-float-gentle: floatGentle 6s ease-in-out infinite;
+  --animate-float-drift-1: floatDrift1 10s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float-drift-2: floatDrift2 12s ease-in-out infinite;
+  --animate-float-drift-3: floatDrift3 15s ease-in-out infinite;
+  --animate-spin-slow: spin 3s linear infinite;
+
+  @keyframes floatGentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes scanHorizontal {
+    0% { left: -20%; }
+    100% { left: 120%; }
+  }
+  @keyframes heartbeat {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+  @keyframes pixelDrift {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(2px, -2px); }
+    50% { transform: translate(-1px, 1px); }
+    75% { transform: translate(-2px, -1px); }
+  }
+  @keyframes glitchText {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+  @keyframes gridFloat {
+    0%, 100% { transform: perspective(500px) rotateX(60deg) translateY(0) scale(2); }
+    50% { transform: perspective(500px) rotateX(55deg) translateY(-20px) scale(2.1); }
+  }
+  @keyframes starMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+  }
+  @keyframes dataRain {
+    0% { transform: translateY(-100%); opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  @keyframes vignetteBreathe {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+  @keyframes heavyGlitch {
+    0%, 90%, 100% { transform: translate(0); text-shadow: none; filter: none; clip-path: none; }
+    91% { transform: translate(-5px, 2px); text-shadow: 2px 0 #d946ef, -2px 0 #14b8b8; clip-path: inset(10% 0 30% 0); }
+    92% { transform: translate(5px, -2px); text-shadow: -2px 0 #d946ef, 2px 0 #14b8b8; clip-path: inset(40% 0 10% 0); }
+    93% { transform: translate(-2px, 5px); filter: hue-rotate(90deg); clip-path: inset(70% 0 5% 0); }
+    94% { transform: translate(0); text-shadow: 4px 0 #d946ef; clip-path: none; }
+    95% { transform: scale(1.05); filter: contrast(200%) brightness(150%); opacity: 0.8; }
+    96% { transform: translate(10px, 0); clip-path: inset(0 0 90% 0); }
+    97% { transform: translate(-10px, 0); clip-path: inset(80% 0 0 0); }
+    98% { transform: skew(10deg); text-shadow: -4px 0 #14b8b8; }
+    99% { transform: translate(0); filter: none; clip-path: none; }
+  }
+  @keyframes heavyGlitchAfter {
+    0%, 90%, 100% { opacity: 0; transform: translate(0); }
+    91% { opacity: 0.5; transform: translate(10px, -5px); filter: blur(2px); }
+    93% { opacity: 0.3; transform: translate(-10px, 5px); filter: blur(4px); }
+    95% { opacity: 0.4; transform: translate(5px, 10px); filter: blur(2px); }
+    97% { opacity: 0.2; transform: translate(-5px, -10px); }
+  }
+  @keyframes reactiveGlitch1 {
+    0%, 100% { clip-path: inset(10% 0 80% 0); transform: translate(-5px, 2px); }
+    33% { clip-path: inset(40% 0 40% 0); transform: translate(5px, -2px); text-shadow: 2px 0 #14b8b8; }
+    66% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 5px); text-shadow: -2px 0 #d946ef; }
+  }
+  @keyframes reactiveGlitch2 {
+    0%, 100% { clip-path: inset(25% 0 58% 0); transform: translate(8px, -4px); filter: hue-rotate(45deg); }
+    50% { clip-path: inset(65% 0 15% 0); transform: translate(-8px, 4px); filter: invert(1); }
+  }
+  @keyframes reactiveGlitch3 {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.02) skew(2deg); text-shadow: 5px 0 #14b8b8, -5px 0 #d946ef; }
+  }
+  @keyframes decrypt {
+    0% { opacity: 0; filter: blur(10px); letter-spacing: 2em; }
+    100% { opacity: 1; filter: blur(0); letter-spacing: normal; }
+  }
+  @keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes floatDrift1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-10px, -20px) rotate(1deg); }
+  }
+  @keyframes floatDrift2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, 10px) rotate(-1deg); }
+  }
+  @keyframes floatDrift3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-5px, 25px) rotate(2deg); }
+  }
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+}
+
+/* CUSTOM PORTFOLIO STYLES */
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #0b0d0e;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* The glass-morphism effect for the panels */
+.manifest-panel {
+    background: rgba(11, 13, 14, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(20, 184, 184, 0.2);
+}
+
+.manifest-panel:hover {
+    border-color: rgba(20, 184, 184, 0.6);
+    box-shadow: 0 0 20px rgba(20, 184, 184, 0.1);
+}
+
+/* The specialized labels for MedComms/Tech/Marketing */
+.data-tag {
+    font-family: monospace;
+    padding: 4px 12px;
+    background: rgba(20, 184, 184, 0.1);
+    border-left: 2px solid #14b8b8;
+    font-size: 13px;
+    color: #14b8b8;
+    white-space: nowrap;
+}
+
+/* The specialized glow effect on the text */
+.glow-text {
+    text-shadow: 0 0 10px rgba(20, 184, 184, 0.5);
+}
+body.modal-open, body.menu-open {
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0b0d0e;
+}
+::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border: 1px solid #14b8b8;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #14b8b8;
+}
+.retro-grid {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200vw;
+    height: 200vh;
+    background-image: 
+        linear-gradient(rgba(20, 184, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 184, 184, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: center;
+    opacity: 0.1;
+    z-index: -10;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%);
+}
+/* Typewriter Effect Styles */
+.typewriter-cursor {
+    display: inline-block;
+    width: 1ch;
+    height: 1.1em;
+    background-color: #14b8b8;
+    box-shadow: 0 0 8px #14b8b8;
+    margin-left: 2px;
+    vertical-align: bottom;
+    animation: cursorBlink 1s step-end infinite;
+}
+
+.char-reveal {
+    opacity: 0;
+    display: inline-block;
+    filter: blur(2px);
+    transform: scale(0.95);
+}
+
+.char-reveal.active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    animation: charFlicker 0.2s ease-out;
+}
+
+@keyframes charFlicker {
+    0% { opacity: 0.1; filter: blur(4px); transform: translateX(-2px); }
+    50% { opacity: 0.8; filter: blur(2px); transform: translateX(1px); }
+    100% { opacity: 1; filter: blur(0); transform: translateX(0); }
+}
+.secondary-grid {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200vw;
+    height: 200vh;
+    background-image: 
+        linear-gradient(rgba(217, 70, 239, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 70, 239, 0.05) 1px, transparent 1px);
+    background-size: 100px 100px;
+    background-position: center;
+    opacity: 0.08;
+    z-index: -9;
+    pointer-events: none;
+}
+.crt-overlay {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    opacity: 0.15;
+}
+.hover-glitch:hover {
+    animation: glitchText 0.3s infinite;
+    text-shadow: 2px 0 #d946ef, -2px 0 #14b8b8;
+}
+.star-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%; 
+    pointer-events: none;
+    z-index: -20;
+}
+.star-bg-1 {
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.2;
+}
+.star-bg-2 {
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 120px 120px;
+    opacity: 0.15;
+}
+.vignette-pulse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 40;
+    background: radial-gradient(circle at center, transparent 40%, rgba(11, 13, 14, 0.8) 100%);
+    mix-blend-mode: multiply;
+}
+.data-stream {
+    position: absolute;
+    top: -100px;
+    width: 20px;
+    font-family: monospace;
+    font-size: 10px;
+    color: rgba(20, 184, 184, 0.3);
+    word-wrap: break-word;
+    line-height: 12px;
+    text-align: center;
+    pointer-events: none;
+}
+.glitch-container {
+    position: relative;
+    display: inline-block;
+}
+.hero-title-glitch {
+    position: relative;
+    animation: heavyGlitch 4s step-end infinite;
+}
+.hero-title-glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: heavyGlitchAfter 4s step-end infinite;
+    color: #d946ef;
+    z-index: -1;
+}
+.reactive-glitch-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.reactive-glitch-wrapper:hover .base-text {
+    animation: reactiveGlitch3 0.15s step-end infinite;
+}
+.reactive-glitch-wrapper .glitch-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+}
+.reactive-glitch-wrapper:hover .glitch-layer-1 {
+    opacity: 1;
+    animation: reactiveGlitch1 0.2s step-end infinite;
+    color: #14b8b8;
+    z-index: -1;
+}
+.reactive-glitch-wrapper:hover .glitch-layer-2 {
+    opacity: 1;
+    animation: reactiveGlitch2 0.3s step-end infinite;
+    color: #d946ef;
+    z-index: -2;
+}
+.scanning-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(20, 184, 184, 0.5);
+    box-shadow: 0 0 8px rgba(20, 184, 184, 0.8);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.sub-project-card:hover .scanning-line {
+    opacity: 1;
+    animation: scanline 2s linear infinite;
+}
+#project-modal.active {
+    display: flex;
+}
+.glass-morphic {
+    background: rgba(11, 13, 14, 0.85);
+    backdrop-filter: blur(20px);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #14b8b8, #d946ef) 1;
+}
+.reticle-close {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+.reticle-close::before, .reticle-close::after {
+    content: '';
+    position: absolute;
+    background: #14b8b8;
+}
+.reticle-close::before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform: rotate(45deg);
+}
+.reticle-close::after {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100%;
+    transform: rotate(45deg);
+}
+.capability-card {
+    background: #0b0d0e;
+    border: 1px solid #1f2937;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+.capability-card:hover {
+    border-color: rgba(20, 184, 184, 0.5);
+    background: #0d1012;
+}
+.tag-btn {
+    padding: 4px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: monospace;
+    border: 1px solid rgba(20, 184, 184, 0.3);
+    background: rgba(20, 184, 184, 0.05);
+    color: #14b8b8;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(20, 184, 184, 0.1);
+    transition: all 0.3s ease;
+}
+.capability-card:hover .tag-btn {
+    border-color: #14b8b8;
+    box-shadow: 0 0 10px rgba(20, 184, 184, 0.4);
+}
+.tag-btn-secondary {
+    color: #d946ef;
+    border-color: rgba(217, 70, 239, 0.3);
+    background: rgba(217, 70, 239, 0.05);
+    box-shadow: 0 0 5px rgba(217, 70, 239, 0.1);
+}
+.capability-card:hover .tag-btn-secondary {
+    border-color: #d946ef;
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.4);
+}
+.carousel-slide-1 { animation: slideFade-1 15s infinite; }
+.carousel-slide-2 { animation: slideFade-2 15s infinite; }
+.carousel-slide-3 { animation: slideFade-3 15s infinite; }
+@keyframes slideFade-1 {
+    0%, 28% { opacity: 1; transform: translateX(0); visibility: visible; }
+    33.33%, 94.66% { opacity: 0; transform: translateX(30px); visibility: hidden; }
+    100% { opacity: 1; transform: translateX(0); visibility: visible; }
+}
+@keyframes slideFade-2 {
+    0%, 28% { opacity: 0; transform: translateX(-30px); visibility: hidden; }
+    33.33%, 61.33% { opacity: 1; transform: translateX(0); visibility: visible; }
+    66.66%, 100% { opacity: 0; transform: translateX(30px); visibility: hidden; }
+}
+@keyframes slideFade-3 {
+    0%, 61.33% { opacity: 0; transform: translateX(-30px); visibility: hidden; }
+    66.66%, 94.66% { opacity: 1; transform: translateX(0); visibility: visible; }
+    100% { opacity: 0; transform: translateX(30px); visibility: hidden; }
+}
+.dot-1 { animation: dotActive-1 15s infinite; }
+.dot-2 { animation: dotActive-2 15s infinite; }
+.dot-3 { animation: dotActive-3 15s infinite; }
+@keyframes dotActive-1 {
+    0%, 28%, 100% { background: #14b8b8; box-shadow: 0 0 10px #14b8b8; }
+    33.33%, 94.66% { background: rgba(255,255,255,0.2); box-shadow: none; }
+}
+@keyframes dotActive-2 {
+    0%, 28% { background: rgba(255,255,255,0.2); box-shadow: none; }
+    33.33%, 61.33% { background: #14b8b8; box-shadow: 0 0 10px #14b8b8; }
+    66.66%, 100% { background: rgba(255,255,255,0.2); box-shadow: none; }
+}
+@keyframes dotActive-3 {
+    0%, 61.33% { background: rgba(255,255,255,0.2); box-shadow: none; }
+    66.66%, 94.66% { background: #14b8b8; box-shadow: 0 0 10px #14b8b8; }
+    100% { background: rgba(255,255,255,0.2); box-shadow: none; }
+}
+#mobile-menu {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+#mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+.mobile-link-glitch:hover {
+    animation: glitchText 0.2s infinite;
+    text-shadow: 2px 0 #d946ef, -2px 0 #14b8b8;
+    color: #14b8b8;
+}
+.hamburger-line {
+    height: 2px;
+    width: 24px;
+    background: #14b8b8;
+    box-shadow: 0 0 8px #14b8b8;
+    display: block;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+.menu-open .hamburger-line:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+.menu-open .hamburger-line:nth-child(2) { opacity: 0; }
+.menu-open .hamburger-line:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+@media (max-width: 768px) {
+    .mobile-left-align {
+        text-align: left !important;
+    }
+    .mobile-left-align div {
+        margin-left: 0 !important;
+        margin-right: auto !important;
+    }
+    .mobile-left-align .flex {
+        justify-content: flex-start !important;
+    }
+}
+
+/* LIGHT MODE OVERRIDES */
+html.light body {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+}
+html.light .bg-background-dark, html.light .bg-\[\#0b0d0e\] {
+    background-color: #ffffff !important;
+}
+html.light .bg-\[\#0f141a\], html.light .bg-surface-dark {
+    background-color: #f9fafb !important;
+}
+html.light .bg-black {
+    background-color: #ffffff !important;
+}
+html.light .bg-black\/80 {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+html.light .bg-\[\#0b0d0e\]\/80 {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+}
+html.light .bg-\[\#0b0d0e\]\/95 {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+html.light .text-white {
+    color: #111827 !important;
+}
+html.light .text-gray-200 {
+    color: #111827 !important;
+}
+html.light .text-gray-300 {
+    color: #1f2937 !important;
+}
+html.light .text-gray-400 {
+    color: #374151 !important;
+}
+html.light .text-gray-500, html.light .text-gray-600 {
+    color: #4b5563 !important;
+}
+html.light .border-primary\/30 {
+    border-color: rgba(20, 184, 184, 0.4) !important;
+}
+html.light .border-primary\/20 {
+    border-color: rgba(20, 184, 184, 0.3) !important;
+}
+html.light .crt-overlay {
+    opacity: 0.03 !important;
+}
+html.light .star-bg-1, html.light .star-bg-2 {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px) !important;
+    opacity: 1 !important;
+}
+html.light .vignette-pulse {
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.05) 100%) !important;
+    mix-blend-mode: normal !important;
+}
+html.light .glass-morphic {
+    background: rgba(255, 255, 255, 0.85) !important;
+}
+html.light .manifest-panel {
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: 1px solid rgba(20, 184, 184, 0.4) !important;
+}
+html.light .capability-card {
+    background: #ffffff !important;
+    border-color: #e5e7eb !important;
+}
+html.light .capability-card:hover {
+    border-color: rgba(20, 184, 184, 0.6) !important;
+}
+html.light .bg-gradient-to-t.from-black.to-transparent {
+    background-image: linear-gradient(to top, #ffffff, transparent) !important;
+}
+html.light .base-text.text-transparent {
+    background-image: linear-gradient(to bottom, #3b424f, #5c6475) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+}
+html.light .border-l-2.border-primary\/50 {
+    border-color: rgba(20, 184, 184, 0.6) !important;
+}
+html.light .bg-gradient-to-r.from-primary\/5.to-transparent {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 80%, transparent 100%) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+}
+html.light .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+html.light .text-white\/40 {
+    color: rgba(0, 0, 0, 0.4) !important;
+}
+html.light .bg-gradient-to-r.from-\[\#0b0d0e\].to-transparent {
+    background-image: linear-gradient(to right, #ffffff, transparent) !important;
+}
+html.light .bg-gradient-to-l.from-\[\#0b0d0e\].to-transparent {
+    background-image: linear-gradient(to left, #ffffff, transparent) !important;
+}
+html.light .text-primary, 
+html.light .text-primary\/40, 
+html.light .text-primary\/60, 
+html.light .text-primary\/80 {
+    color: #1bc5c5 !important;
+}
+html.light .text-secondary,
+html.light .text-secondary\/10,
+html.light .text-secondary\/20 {
+    color: #d946ef !important;
+}
+
+html.light .data-stream {
+    color: rgba(27, 197, 197, 0.5) !important;
+}
+html.light .data-stream[style*="rgba(217, 70, 239, 0.2)"] {
+    color: rgba(217, 70, 239, 0.5) !important;
+}
+html.light .data-stream[style*="rgba(139, 92, 246, 0.2)"] {
+    color: rgba(139, 92, 246, 0.5) !important;
+}
+html.light .hero-title-glitch {
+    color: #1bc5c5 !important;
+    text-shadow: 0 0 8px rgba(27, 197, 197, 0.25) !important;
+}
+html.light .hero-title-glitch::before {
+    display: none !important;
+}
+html.light .hero-title-glitch.glow-text {
+    filter: none !important;
+}
+
+/* Hero Ambient Glows Light Mode */
+html.light .bg-primary\/10.blur-\[120px\],
+html.light .bg-primary\/10.blur-\[100px\] {
+    background-color: rgba(27, 197, 197, 0.06) !important;
+    opacity: 1 !important;
+}
+html.light .bg-secondary\/10.blur-\[120px\] {
+    background-color: rgba(217, 70, 239, 0.05) !important;
+    opacity: 1 !important;
+}
+
+/* Hero Buttons Light Mode Vibrancy */
+html.light .border-white\/20.text-white {
+    border-color: #1bc5c5 !important;
+    color: #1bc5c5 !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 10px rgba(27, 197, 197, 0.15) !important;
+}
+html.light .border-white\/20.text-white:hover {
+    background-color: rgba(27, 197, 197, 0.08) !important;
+    box-shadow: 0 0 20px rgba(27, 197, 197, 0.5) !important;
+}
+html.light button.bg-primary {
+    background-color: #1bc5c5 !important;
+    color: #0b0d0e !important;
+    box-shadow: 4px 4px 0px #1bc5c5 !important;
+}
+html.light button.bg-primary:hover {
+    box-shadow: none !important;
+}
+
+/* Revert back to clear backgrounds with solid borders */
+html.light .data-tag {
+    color: #1bc5c5 !important;
+    border: 1px solid #1bc5c5 !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+}
+
+html.light .bg-primary\/10.border-primary {
+    border-color: #1bc5c5 !important;
+    color: #1bc5c5 !important;
+    background-color: transparent !important;
+    box-shadow: 0 0 8px rgba(27, 197, 197, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+html.light .bg-primary\/10.border-primary:hover {
+    background-color: #1bc5c5 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 15px rgba(27, 197, 197, 0.6) !important;
+}
+
+html.light .border-l-2.border-primary\/50 {
+    border-color: #1bc5c5 !important;
+}
+
+/* Timeline Cards Light Mode */
+html.light .bg-surface-dark\/50 {
+    background-color: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.12) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hover outline colors for timeline cards in light mode */
+html.light .bg-surface-dark\/50.hover\:border-primary\/50:hover {
+    border-color: rgba(27, 197, 197, 0.5) !important;
+}
+html.light .bg-surface-dark\/50.hover\:border-accent\/50:hover {
+    border-color: rgba(139, 92, 246, 0.5) !important;
+}
+html.light .bg-surface-dark\/50.hover\:border-secondary\/50:hover {
+    border-color: rgba(217, 70, 239, 0.5) !important;
+}
+html.light .bg-surface-dark\/50.hover\:border-primary\/30:hover {
+    border-color: rgba(27, 197, 197, 0.3) !important;
+}
+
+/* Footer/Contact section Light Mode */
+html.light footer#contact {
+    background: linear-gradient(to bottom, #ffffff, #f9fafb) !important;
+    border-top-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* General light mode border override */
+html.light .border-gray-800 {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Footer buttons in light mode (retain rounded-none) */
+html.light #contact a.bg-primary {
+    background-color: #1bc5c5 !important;
+    color: #000000 !important;
+    box-shadow: 0 0 8px #1bc5c5, 0 0 20px rgba(27, 197, 197, 0.6) !important;
+}
+html.light #contact a.bg-primary:hover {
+    background-color: #119c9c !important;
+    box-shadow: 0 0 12px #1bc5c5, 0 0 30px rgba(27, 197, 197, 0.8) !important;
+}
+html.light #contact a.border-primary {
+    border-color: #1bc5c5 !important;
+    color: #1bc5c5 !important;
+    background-color: transparent !important;
+}
+html.light #contact a.border-primary:hover {
+    background-color: rgba(27, 197, 197, 0.08) !important;
+    box-shadow: 0 0 8px rgba(27, 197, 197, 0.3) !important;
+}
+
+/* Stats Number Gradient Light Mode */
+html.light .manifest-panel h2.glow-text {
+    background-image: linear-gradient(to bottom, #3b424f, #5c6475) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    text-shadow: none !important;
+}
+
+html.light .manifest-panel h2.glow-text span.text-primary {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    -webkit-text-fill-color: #1bc5c5 !important;
+    color: #1bc5c5 !important;
+}
+
+/* Subtle shadows for project cards in light mode */
+html.light .shadow-2xl {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Career History Cleanups for Light Mode */
+html.light .relative.border-l-2.border-primary\/20 {
+    border-left-color: rgba(27, 197, 197, 0.3) !important;
+}
+/* Hide the blurry glow on the timeline line */
+html.light .relative.border-l-2.border-primary\/20 > div.absolute:first-child {
+    display: none !important;
+}
+/* Remove the harsh glow shadow from date badges in light mode */
+html.light #chronicle .skew-x-\[-10deg\] {
+    box-shadow: none !important;
+}
+/* Style date badges to have subtle outline and background */
+html.light .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+}
+html.light .border-white\/20 {
+    border-color: rgba(0, 0, 0, 0.12) !important;
+}
+html.light .bg-accent\/20 {
+    background-color: rgba(139, 92, 246, 0.1) !important;
+}
+html.light .border-accent {
+    border-color: rgba(139, 92, 246, 0.3) !important;
+}
+/* Override harsh neon hover shadows on timeline cards to be elegant drop shadows */
+html.light .group:hover .group-hover\:shadow-neon {
+    box-shadow: 0 10px 30px rgba(27, 197, 197, 0.15) !important;
+}
+html.light .group:hover .group-hover\:shadow-neon-accent {
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15) !important;
+}
+html.light .group:hover .group-hover\:shadow-neon-secondary {
+    box-shadow: 0 10px 30px rgba(217, 70, 239, 0.15) !important;
+}
+html.light .group:hover .group-hover\:shadow-neon\/20 {
+    box-shadow: 0 10px 30px rgba(27, 197, 197, 0.08) !important;
+}

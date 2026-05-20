@@ -1,0 +1,120 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="SYNTH_PROTOCOL // DATA_LOGS">
+    <!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#0a0e14] border-b border-cyan-400/20 shadow-[0_0_15px_rgba(61,244,244,0.1)] flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">terminal</span>
+<h1 class="text-xl font-black tracking-tighter text-cyan-400 font-['Space_Grotesk'] uppercase">SYNTH_PROTOCOL</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-['Space_Grotesk'] uppercase tracking-tight text-slate-500 hover:text-cyan-300 transition-colors cursor-pointer active:scale-95" href="#">VITAL_SIGNS</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tight text-slate-500 hover:text-cyan-300 transition-colors cursor-pointer active:scale-95" href="#">NEURAL_MAP</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tight text-cyan-400 border-b-2 border-cyan-400 pb-1 cursor-pointer active:scale-95" href="#">DATA_LOGS</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tight text-slate-500 hover:text-cyan-300 transition-colors cursor-pointer active:scale-95" href="#">SYSTEM_MANIFEST</a>
+</nav>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 hover:text-cyan-300 transition-colors cursor-pointer active:scale-95">settings</span>
+<div class="w-8 h-8 bg-surface-container-highest border border-primary/20 flex items-center justify-center">
+<img alt="Medical Officer Avatar" class="w-full h-full object-cover" data-alt="Cybernetic medical officer portrait with neon visual interface elements and dark clinical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPKJ7LxsuZBpSPMfIoVwaVccdmWsmrTADQOof7g6k59FgL2aNr_juAZdCs4InDNmDIrQr5y0y5f7AG4UDCZLpn6S7Muuht1qSkUbMfRGKw84kAvOn6V8AzscDNSx6s5JxlcOHUNKt9yzxBAP3GYKVuvG_isiALKLxKg9xmM57SNo5bO4MH8L3aR8-942DtmbnUPMLj9giWyq1TOT7yz4nC2AZ1dATFOsNksVvdosfZ5kYZNntxiGNIfRcozKBYMCEKye2JT9N6oqs"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="mt-16 p-8 min-h-[calc(100vh-64px)] bg-background relative flex items-center justify-center hud-scanline">
+<!-- MODAL CONTAINER (Expanded width) -->
+<div class="w-full max-w-[90rem] aspect-[16/9] bg-surface-container-low/80 backdrop-blur-xl border border-primary/20 relative flex overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)]">
+<!-- LEFT PANEL: DATA BLOCKS -->
+<div class="w-1/2 p-16 flex flex-col justify-between border-r border-primary/10 relative z-10 bg-surface-container-low/95">
+<!-- Branding Badges -->
+<div class="flex gap-4 mb-8">
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold tracking-[0.2em] border border-primary/20">PRODUCTION</span>
+<span class="bg-secondary/10 text-secondary text-[10px] px-3 py-1 font-bold tracking-[0.2em] border border-secondary/20">v2.0.26_STABLE</span>
+</div>
+<!-- Content Sections -->
+<div class="space-y-12">
+<section>
+<h2 class="text-primary font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+<span class="w-1 h-3 bg-primary"></span> [ 01_OBJECTIVE ]
+                    </h2>
+<p class="text-on-background text-xl font-medium leading-relaxed max-w-xl">
+                        Optimize healthcare data visualization for faster clinical decision-making.
+                    </p>
+</section>
+<section>
+<h2 class="text-secondary font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+<span class="w-1 h-3 bg-secondary"></span> [ 02_STRATEGY ]
+                    </h2>
+<p class="text-on-surface-variant text-xl leading-relaxed max-w-xl">
+                        Architected a modular DesignOps pipeline using n8n to automate 3D asset deployment across multiple AR platforms.
+                    </p>
+</section>
+<section>
+<h2 class="text-tertiary font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+<span class="w-1 h-3 bg-tertiary"></span> [ 03_OUTCOME ]
+                    </h2>
+<div class="flex items-start gap-4">
+<p class="text-on-background text-xl leading-relaxed max-w-xl">
+                            Reduced manual production time by <span class="text-tertiary font-black">60%</span> and secured the 2026 Rising Star Award.
+                        </p>
+<span class="material-symbols-outlined text-tertiary text-5xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</section>
+</div>
+<!-- CTA -->
+<div class="mt-12 flex items-center gap-6">
+<button class="bg-primary text-surface-lowest px-12 py-5 font-black text-sm tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(61,244,244,0.3)]">
+                    [&gt;] INIT_PROTOCOL
+                </button>
+<div class="text-[10px] text-slate-500 font-mono tracking-tighter">
+                    AUTH_SIGNAL: 100%_SECURE<br/>
+                    LATENCY: 0.002MS
+                </div>
+</div>
+<!-- Decorative corner elements -->
+<div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary/40"></div>
+<div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary/40"></div>
+</div>
+<!-- RIGHT PANEL: CASE STUDY ASSETS (SCROLLABLE) -->
+<div class="w-1/2 relative bg-surface-container-lowest overflow-hidden">
+<!-- Scrollable Image Container -->
+<div class="absolute inset-0 overflow-y-auto custom-scrollbar p-1 z-0">
+<div class="flex flex-col gap-1">
+<img alt="Technical Schematic 01" class="w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-60 hover:opacity-100" data-alt="Intricate blue and white technical blueprint of a neural interface component with callouts and measurements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoG6ryNsd6H-DOpTxwVaeoDjWnrOfNA-s-wvI-SU0t6OERDZv62xq_n1Fm7NLJXG1i8wyQMXrO_Tt_luYNvEoIeldcHueucYMKoR3cLuQY8OiOE_fNV6skZQxc4QIK8Mas9aWsteFM4BI6MDPpSTPq7Pt-LJMXqTXycZ_6-7bC4gqgNKFxgq83kK6KYwccE8k-cTBfGPAPg2pyKCVbfxKGmc5Vb0vLkvyd35sZwOG6D4xCQzIkc2AGWRIpysKCdj29WaP8OJliKEk"/>
+<img alt="Medical Data Vis 02" class="w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-60 hover:opacity-100" data-alt="Abstract 3D representation of a DNA helix structure glowing with cyan and magenta light nodes, digital diagnostic interface overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPKJ7LxsuZBpSPMfIoVwaVccdmWsmrTADQOof7g6k59FgL2aNr_juAZdCs4InDNmDIrQr5y0y5f7AG4UDCZLpn6S7Muuht1qSkUbMfRGKw84kAvOn6V8AzscDNSx6s5JxlcOHUNKt9yzxBAP3GYKVuvG_isiALKLxKg9xmM57SNo5bO4MH8L3aR8-942DtmbnUPMLj9giWyq1TOT7yz4nC2AZ1dATFOsNksVvdosfZ5kYZNntxiGNIfRcozKBYMCEKye2JT9N6oqs"/>
+<img alt="Architectural Diagram 03" class="w-full grayscale hover:grayscale-0 transition-all duration-700 opacity-60 hover:opacity-100" data-alt="Complex 3D wireframe diagram of a clinical facility with heat-map overlays showing data flow densities in bright green and yellow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr_3pWW1TZzj2WM3hsWfNQz9CDW4wIEj8vvOgsIECbNHGg47WJcep9HAGq7n8xHwC65fr2NUKndyfrl_MpJ90xWoul620hp7MYlB7SEX5A89_oCPlEfnSj-un9PxJSqv0mMZMPGOBo6xxAgchf2UwqzNH7fRK9Bm6sM7IAuayKzKT81rCVWmqvi-qTNK91NaSfl1V8Z9s5mknJL9X8OIbgGTc1FJ7suVb-Soo2X6z-KnqcrixotanU6yCRwM3N6Dq5oWad6fJ_Nog"/>
+<div class="h-64 flex items-center justify-center border-t border-primary/10">
+<span class="text-[10px] text-primary/30 tracking-[0.5em] uppercase">END_OF_MANIFEST</span>
+</div>
+</div>
+</div>
+<!-- FLOATING HUD OVERLAYS (Relative to panel) -->
+<!-- Visual Masking Gradients -->
+<div class="absolute inset-0 pointer-events-none bg-gradient-to-r from-surface-container-lowest via-transparent to-transparent opacity-60 z-10"></div>
+<div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-surface-container-lowest to-transparent z-10"></div>
+<div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-surface-container-lowest to-transparent z-10"></div>
+<!-- ENHANCED SCROLL INDICATOR -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 pointer-events-none group">
+<span class="text-[11px] text-primary font-black tracking-[0.4em] uppercase drop-shadow-[0_0_8px_rgba(61,244,244,0.6)]">SCROLL_FOR_INTEL</span>
+<div class="animate-pulse-cyan bg-primary/20 rounded-full p-2 border border-primary/40">
+<span class="material-symbols-outlined text-primary text-4xl block leading-none" style="font-variation-settings: 'wght' 700;">keyboard_double_arrow_down</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ambient Glow Elements -->
+<div class="absolute top-1/4 -left-20 w-[30rem] h-[30rem] bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
+</main>
+<!-- Footer Meta-Data -->
+<footer class="fixed bottom-0 w-full h-8 px-6 bg-surface-container-lowest border-t border-primary/5 flex items-center justify-between text-[9px] font-mono text-slate-600 tracking-widest uppercase z-50">
+<div>PROTOCOL_STATUS: 0x22F9_ACTIVE</div>
+<div class="flex gap-8">
+<span>UPTIME: 1,242:12:09</span>
+<span>DATA_SYNC: VERIFIED</span>
+<span class="text-primary">ENCRYPTION: AES_256_ACTIVE</span>
+</div>
+</footer>
+</Layout>

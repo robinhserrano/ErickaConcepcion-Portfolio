@@ -82,4 +82,4 @@ To activate the interface locally:
 > Use the `Initiate Sequence` command in the primary HUD to view the full mission history.
 
 ---
-*© 2084 Ericka Systems. All rights reserved. SECURE_V3 Protocol Active.*
+*© 2026 Ericka Systems. All rights reserved. SECURE_V3 Protocol Active.*

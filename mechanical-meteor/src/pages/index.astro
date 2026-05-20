@@ -1,0 +1,1753 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Import optimized landing page cover images
+import ermesPreview from '../assets/Ermes Preview.png';
+import gogorillaPreview from '../assets/GoGorilla Preview.png';
+import hyphensPreview from '../assets/Hyphens Preview.png';
+import mimsPreview from '../assets/MIMS preview.png';
+import neutrogenaPreview from '../assets/Neutrogena Preview.png';
+import gskPreview from '../assets/GSK.png';
+import amazonPreview from '../assets/Amazon.png';
+import mimsArCover from '../assets/mims_ar_cover.png';
+import mimsBannerCover from '../assets/mims_banner_cover.jpg';
+---
+
+<Layout title="ERICKA CN">
+    <div class="hidden fixed inset-0 z-[100] items-center justify-center p-4 md:p-8 bg-black/80 backdrop-blur-sm"
+        id="project-modal">
+        <!-- MODAL CONTAINER (Expanded width) -->
+        <div
+            class="w-full max-w-[90rem] aspect-auto md:aspect-[16/9] max-h-[95vh] bg-[#0f141a]/95 backdrop-blur-xl border border-primary/30 relative flex flex-col md:flex-row overflow-hidden shadow-[0_0_100px_rgba(20,184,184,0.15)] animate-[decrypt_0.8s_steps(10)_forwards]">
+
+            <div class="absolute top-4 right-4 z-50 bg-[#0f141a] rounded-full">
+                <button class="reticle-close text-primary block hover:scale-110 transition-transform group"
+                    id="modal-close-btn" style="">
+                    <div
+                        class="absolute inset-0 border border-primary/50 rounded-full group-hover:border-primary group-hover:shadow-[0_0_10px_rgba(20,184,184,0.5)] transition-all">
+                    </div>
+                    <div
+                        class="absolute inset-[-4px] border border-primary/20 rounded-full animate-[spin_3s_linear_infinite]">
+                    </div>
+                </button>
+            </div>
+
+            <!-- LEFT PANEL: DATA BLOCKS -->
+            <div
+                class="w-full md:w-1/2 flex-1 p-8 md:p-16 flex flex-col justify-between border-b md:border-b-0 md:border-r border-primary/20 relative z-10 bg-[#0f141a]">
+                <!-- Branding Badges -->
+                <div class="flex gap-4 mb-4 md:mb-8">
+                    <span
+                        class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold tracking-[0.2em] border border-primary/20">PRODUCTION</span>
+                    <span
+                        class="bg-secondary/10 text-secondary text-[10px] px-3 py-1 font-bold tracking-[0.2em] border border-secondary/20">v2.0.26_STABLE</span>
+                </div>
+
+                <!-- Content Sections -->
+                <div class="space-y-8 overflow-y-auto pr-4 custom-scrollbar max-h-[40vh] md:max-h-none">
+                    <section>
+                        <h2 class="text-primary font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+                            <span class="w-1 h-3 bg-primary"></span> [ 01_OBJECTIVE ]
+                        </h2>
+                        <h3 class="text-white text-3xl md:text-5xl font-black uppercase tracking-tighter glow-text mb-4"
+                            id="modal-title">PROJECT_TITLE</h3>
+                        <p class="text-gray-300 text-lg md:text-xl font-medium leading-relaxed max-w-xl"
+                            id="modal-desc">
+                            Project Description goes here.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-accent font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+                            <span class="w-1 h-3 bg-accent"></span> [ 02_CONSTRAINT ]
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed max-w-xl whitespace-pre-line"
+                            id="modal-challenge"></p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-secondary font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+                            <span class="w-1 h-3 bg-secondary"></span> [ 03_METHODOLOGY ]
+                        </h2>
+                        <div class="flex flex-wrap gap-2 mb-4" id="modal-tags"><!-- Tags injected here --></div>
+                        <p class="text-gray-400 text-lg leading-relaxed max-w-xl mt-4 whitespace-pre-line"
+                            id="modal-strategy"></p>
+                    </section>
+
+                    <section class="hidden">
+                        <h2 class="text-blue-400 font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+                            <span class="w-1 h-3 bg-blue-400"></span> [ 04_EXECUTION ]
+                        </h2>
+                        <p class="text-gray-400 text-lg leading-relaxed max-w-xl whitespace-pre-line"
+                            id="modal-execution"></p>
+                    </section>
+
+                    <section>
+                        <h2 class="text-[#abfc00] font-bold text-xs tracking-[0.3em] mb-3 flex items-center gap-2">
+                            <span class="w-1 h-3 bg-[#abfc00]"></span> [ 04_IMPACT ]
+                        </h2>
+                        <div class="flex items-start gap-4">
+                            <p class="text-white text-lg md:text-xl leading-relaxed max-w-xl whitespace-pre-line"
+                                id="modal-outcome">
+                            </p>
+                            <span class="material-symbols-outlined text-[#abfc00] text-4xl md:text-5xl"
+                                style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-6">
+                    <a id="modal-cta-link" href="#" target="_blank"
+                        class="bg-primary text-black font-black px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm tracking-widest hover:brightness-110 active:scale-95 transition-all shadow-[0_0_20px_rgba(20,184,184,0.3)] inline-block">
+                        [&gt;] SEE_IT_IN_ACTION
+                    </a>
+                    <div class="text-[10px] text-gray-500 font-mono tracking-tighter hidden sm:block">
+                        AUTH_SIGNAL: 100%_SECURE<br />
+                        LATENCY: 0.002MS
+                    </div>
+                </div>
+
+                <!-- Decorative corner elements -->
+                <div class="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-primary/40 hidden md:block">
+                </div>
+                <div class="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-primary/40 hidden md:block">
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: CASE STUDY ASSETS (SCROLLABLE) -->
+            <div
+                class="w-full md:w-1/2 flex-1 relative bg-black overflow-hidden flex flex-col min-h-[50vh] md:min-h-0 md:max-h-none">
+                <!-- Scrollable Image Container -->
+                <div class="absolute inset-0 overflow-y-auto p-1 z-0 custom-scrollbar" id="modal-scroll-container">
+                    <div class="flex flex-col gap-1 pb-48" id="modal-assets-container">
+                        <!-- Dynamic assets will be injected here -->
+                    </div>
+                </div>
+
+                <!-- FLOATING HUD OVERLAYS (Relative to panel) -->
+                <div
+                    class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none">
+                </div>
+
+                <!-- ENHANCED SCROLL INDICATOR -->
+                <div id="modal-scroll-indicator"
+                    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 pointer-events-none group transition-opacity duration-300">
+                    <span
+                        class="text-[10px] md:text-[11px] text-primary font-black tracking-[0.4em] uppercase drop-shadow-[0_0_8px_rgba(20,184,184,0.6)]">SCROLL_FOR_INTEL</span>
+                    <div class="animate-[pulse_2s_infinite] bg-primary/20 rounded-full p-2 border border-primary/40">
+                        <span class="material-symbols-outlined text-primary text-2xl md:text-3xl block leading-none"
+                            style="font-variation-settings: 'wght' 700;">keyboard_double_arrow_down</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Ambient Glow Elements -->
+            <div
+                class="absolute top-1/4 -left-20 w-[30rem] h-[30rem] bg-primary/10 blur-[120px] rounded-full pointer-events-none hidden md:block">
+            </div>
+            <div
+                class="absolute bottom-1/4 -right-20 w-[30rem] h-[30rem] bg-secondary/10 blur-[120px] rounded-full pointer-events-none hidden md:block">
+            </div>
+        </div>
+    </div>
+    <div class="retro-grid animate-grid-float"></div>
+    <div class="secondary-grid animate-grid-float-delayed"
+        style="transform: perspective(500px) rotateX(60deg) translateY(0) scale(2) rotateZ(5deg);"></div>
+    <div class="star-layer star-bg-1 animate-star-move-slow"></div>
+    <div class="star-layer star-bg-2 animate-star-move-fast"></div>
+    <div class="fixed inset-0 z-[-5] pointer-events-none overflow-hidden">
+        <div class="data-stream left-[5%] animate-data-rain" style="animation-duration: 12s;">
+            1<br />0<br />1<br />0<br />0<br />1<br />1<br />0<br />1<br />A<br />F<br />4<br />9<br />1<br />0<br />0<br />1
+        </div>
+        <div class="data-stream left-[25%] animate-data-rain"
+            style="animation-duration: 18s; color: rgba(217, 70, 239, 0.2);">
+            0<br />F<br />F<br />1<br />2<br />X<br />0<br />1<br />0<br />0<br />1<br />B<br />7<br />1<br />0
+        </div>
+        <div class="data-stream left-[85%] animate-data-rain" style="animation-duration: 15s;">
+            1<br />0<br />0<br />1<br />1<br />0<br />0<br />1<br />0<br />E<br />R<br />R<br />0<br />R<br />1
+        </div>
+        <div class="data-stream left-[65%] animate-data-rain"
+            style="animation-duration: 22s; color: rgba(139, 92, 246, 0.2);">
+            0<br />1<br />1<br />0<br />C<br />N<br />0<br />1<br />1<br />0<br />1
+        </div>
+    </div>
+    <div class="vignette-pulse animate-vignette-breathe"></div>
+    <div class="crt-overlay"></div>
+    <nav class="fixed top-0 left-0 w-full z-[80] bg-[#0b0d0e]/80 backdrop-blur-md border-b border-primary/30">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="text-primary animate-heartbeat">
+                    <span class="material-symbols-outlined text-3xl" style="">design_services</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-widest text-white uppercase glow-text hover-glitch cursor-default"
+                    style="">
+                    Ericka<span class="text-primary" style="">//</span>CN
+                </h1>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-medium hover:text-primary transition-colors tracking-wider" href="#boot"
+                    style="">HOME</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors tracking-wider" href="#skills"
+                    style="">SKILLS</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors tracking-wider" href="#projects"
+                    style="">PROJECTS</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors tracking-wider" href="#chronicle"
+                    style="">EXPERIENCE</a>
+                
+                <button id="theme-toggle-desktop" class="text-primary hover:text-white transition-colors focus:outline-none flex items-center justify-center" aria-label="Toggle Theme">
+                    <span class="material-symbols-outlined text-xl" id="theme-icon-desktop">light_mode</span>
+                </button>
+
+                <a class="group relative inline-flex items-center justify-center overflow-hidden text-white transition-all duration-300 hover:text-primary focus:outline-none"
+                    href="https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BqRxEv7amQX%2BdKcHoKtLA8w%3D%3D" target="_blank" style="">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+            </div>
+            <button class="md:hidden flex flex-col items-center justify-center p-2 focus:outline-none z-[90]"
+                id="menu-toggle" style="">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="fixed inset-0 z-[70] bg-[#0b0d0e]/95 backdrop-blur-xl border-2 border-primary/50 opacity-0 invisible flex flex-col items-center justify-center transition-all duration-300 md:hidden"
+        id="mobile-menu" style="border-image: linear-gradient(45deg, #14b8b8, #d946ef) 1;">
+        <div class="flex flex-col items-start gap-8 px-10">
+            <a class="mobile-link-glitch text-2xl font-bold tracking-[0.2em] transition-all flex items-center gap-4"
+                href="#boot" style="">
+                <span class="text-primary font-mono text-sm" style="">01_</span>HOME
+            </a>
+            <a class="mobile-link-glitch text-2xl font-bold tracking-[0.2em] transition-all flex items-center gap-4"
+                href="#skills" style="">
+                <span class="text-primary font-mono text-sm" style="">02_</span>SKILLS
+            </a>
+            <a class="mobile-link-glitch text-2xl font-bold tracking-[0.2em] transition-all flex items-center gap-4"
+                href="#projects" style="">
+                <span class="text-primary font-mono text-sm" style="">03_</span>PROJECTS
+            </a>
+            <a class="mobile-link-glitch text-2xl font-bold tracking-[0.2em] transition-all flex items-center gap-4"
+                href="#chronicle" style="">
+                <span class="text-primary font-mono text-sm" style="">04_</span>EXPERIENCE
+            </a>
+            
+            <button id="theme-toggle-mobile" class="mobile-link-glitch text-2xl font-bold tracking-[0.2em] transition-all flex items-center gap-4 focus:outline-none mt-4 text-left w-full">
+                <span class="text-primary font-mono text-sm" style="">05_</span>THEME: <span id="mobile-theme-text" class="text-primary ml-2">DARK</span>
+            </button>
+
+            <a class="mt-8 w-full group relative inline-flex items-center justify-center overflow-hidden text-white transition-all duration-300 hover:text-primary focus:outline-none gap-2"
+                href="https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BqRxEv7amQX%2BdKcHoKtLA8w%3D%3D" target="_blank" style="">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span class="relative tracking-widest text-lg" style="">LINKEDIN</span>
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-10 text-[10px] font-mono text-primary/40 uppercase" style="">
+            Protocol: SECURE_V3<br />
+            Identity: ERICKA_OPERATOR
+        </div>
+    </div>
+    <main class="flex flex-col w-full min-h-screen pt-20">
+        <section class="relative min-h-[90vh] flex items-center justify-center px-4 md:px-10 py-20 overflow-hidden"
+            id="boot">
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[100px] pointer-events-none">
+            </div>
+            <div class="relative w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 flex flex-col gap-6 z-10 mb-16 lg:mb-0">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 border border-primary/30 bg-primary/5 w-fit rounded text-xs tracking-widest text-primary"
+                        style="">
+                        <span class="w-2 h-2 rounded-full bg-primary animate-heartbeat"></span>
+                        SYSTEM ONLINE v2.4
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-black leading-tight tracking-tighter uppercase select-none"
+                        style="">
+                        <div class="reactive-glitch-wrapper">
+                            <span
+                                class="base-text block text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400"
+                                style="">HI, I'M ERICKA</span>
+                            <span class="glitch-layer glitch-layer-1" data-text="HI, I'M ERICKA" style="">HI, I'M
+                                ERICKA</span>
+                            <span class="glitch-layer glitch-layer-2" data-text="HI, I'M ERICKA" style="">HI, I'M
+                                ERICKA</span>
+                        </div>
+                        <br>
+                        <div class="glitch-container mt-2">
+                            <span
+                                class="hero-title-glitch text-primary glow-text block animate-heavy-glitch text-5xl sm:text-6xl md:text-7xl lg:text-8xl whitespace-nowrap leading-none uppercase"
+                                data-text="CREATIVE TECH" style="">CREATIVE TECH</span>
+                        </div>
+                    </h1>
+                    <p class="text-gray-400 text-lg md:text-xl max-w-xl font-light border-l-2 border-primary/50 pl-6 py-2 bg-gradient-to-r from-primary/5 to-transparent"
+                        style="">
+                        Optimizing design production through AI and workflow automation. I architect high-fidelity UI/UX, immersive experiences, and scalable marketing collateral systems to maximize efficiency and scale output for global brands.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-4">
+                        <a href="#contact"
+                            class="relative overflow-hidden bg-primary text-background-dark font-bold text-lg px-8 py-3 rounded-none shadow-retro hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all uppercase tracking-widest"
+                            style="">
+                            Contact Me
+                        </a>
+                        <a href="assets/Ericka-Concepcion-2026%20LATEST.pdf" target="_blank"
+                            class="relative overflow-hidden border border-white/20 text-white font-medium text-lg px-8 py-3 rounded-none hover:bg-white/5 transition-all uppercase tracking-widest flex items-center gap-2"
+                            style="">
+                            <span class="material-symbols-outlined text-sm" style="">visibility</span>
+                            View Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[500px]">
+                    <div class="relative w-full h-full max-w-md aspect-square">
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                            <div
+                                class="w-[125%] aspect-square border border-primary/10 rounded-full animate-float-drift-3 opacity-70 shrink-0">
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center gap-8 z-10">
+                            <div class="manifest-panel p-10 relative group animate-float-drift-1 shrink-0">
+                                <div class="absolute -top-3 -left-3 px-2 py-1 bg-primary text-black font-mono text-[10px] font-bold tracking-tighter"
+                                    style="">YEARS OF EXPERIENCE</div>
+                                <div
+                                    class="absolute inset-0 border border-primary/30 opacity-50 group-hover:opacity-100 transition-opacity">
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-[10px] font-mono text-primary/60 uppercase tracking-[0.4em] mb-2"
+                                        style="">Operation_Timeframe</p>
+                                    <h2 class="text-7xl md:text-8xl font-black text-white glow-text leading-none shadow-cyan-glow tracking-tighter"
+                                        style="">05+<span class="text-2xl font-bold align-top ml-1 text-primary"
+                                            style="">YRS</span></h2>
+                                </div>
+                            </div>
+                            <div class="manifest-panel p-6 w-full animate-float-drift-2 shrink-0">
+                                <div class="flex justify-between items-center mb-4 border-b border-primary/20 pb-4">
+                                    <span class="text-xs font-mono text-primary/80" style="">SECTOR_MAPPING</span>
+                                    <span class="material-symbols-outlined text-sm text-primary animate-pulse"
+                                        style="">radar</span>
+                                </div>
+                                <div class="flex flex-wrap gap-4">
+                                    <div class="data-tag" style="">Medical Communications</div>
+                                    <div class="data-tag" style="">Tech</div>
+                                    <div class="data-tag" style="">Marketing</div>
+                                </div>
+                            </div>
+                            <div
+                                class="manifest-panel p-6 w-[85%] self-end animate-float-drift-3 relative overflow-visible shrink-0">
+                                <div class="absolute top-0 right-0 p-2">
+                                    <div class="w-1.5 h-1.5 bg-secondary rounded-full animate-ping"></div>
+                                </div>
+                                <div class="mb-4">
+                                    <span class="text-xs font-mono text-secondary uppercase tracking-widest" style="">
+                                        SPATIAL PIPELINES // AR / R&amp;D / AI / DesignOps</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 font-mono text-sm border-t border-secondary/10 pt-4">
+                                    <div class="space-y-4">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="w-1.5 h-1.5 bg-secondary rounded-full shadow-[0_0_5px_#d946ef]"></span>
+                                            <span class="text-gray-300">Global Reach</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="w-1.5 h-1.5 bg-secondary rounded-full shadow-[0_0_5px_#d946ef]"></span>
+                                            <span class="text-gray-300">+60% Efficiency</span>
+                                        </div>
+                                    </div>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_5px_#14b8b8]"></span>
+                                            <span class="text-gray-300">AI Workflows</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <span
+                                                class="w-1.5 h-1.5 bg-primary rounded-full shadow-[0_0_5px_#14b8b8]"></span>
+                                            <span class="text-gray-300">DesignOps</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-secondary/40 to-transparent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Network Section -->
+        <section class="pt-12 pb-8 border-b border-white/5 bg-[#0b0d0e] relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16 overflow-hidden">
+                    <div class="flex-shrink-0 w-full md:w-auto">
+                        <span
+                            class="text-[10px] font-mono text-primary/40 uppercase tracking-[0.5em] block mb-2">Collaboration_Log</span>
+                        <h3 class="text-lg font-bold text-white tracking-widest uppercase mb-1">Delivered For</h3>
+                        <p
+                            class="text-[8px] font-mono text-gray-400 uppercase tracking-[0.1em] max-w-[150px] leading-tight border-l border-white/20 pl-2 mt-1">
+                            * Enterprise client projects delivered via MIMS and Amazon
+                        </p>
+                    </div>
+                    <div class="flex-grow overflow-hidden relative w-[calc(100%+3rem)] -mx-6 md:mx-0 md:w-auto">
+                        <!-- Fade edges -->
+                        <div class="absolute inset-y-0 left-0 w-8 md:w-20 bg-gradient-to-r from-[#0b0d0e] to-transparent z-10">
+                        </div>
+                        <div
+                            class="absolute inset-y-0 right-0 w-8 md:w-20 bg-gradient-to-l from-[#0b0d0e] to-transparent z-10">
+                        </div>
+
+                        <div
+                            class="flex items-center gap-12 animate-marquee whitespace-nowrap opacity-30 hover:opacity-100 transition-opacity duration-700">
+                            <!-- High-Profile Brands Stylized -->
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ABBOTT</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">AMAZON</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">PFIZER</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ASTRAZENECA</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">MODERNA</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">MOUNJARO</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">NIKE</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ADIDAS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">JOHNSON & JOHNSON</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ABBVIE</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">MSD</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ASTELLAS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">VIATRIS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">BRISTOL MYERS SQUIBB</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">NOVARTIS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ROCHE</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">SKECHERS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">GSK</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">KENVUE</span>
+                            <!-- Duplicate for seamless scroll -->
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ABBOTT</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">AMAZON</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">PFIZER</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ASTRAZENECA</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">MODERNA</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">MOUNJARO</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">NIKE</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ADIDAS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">JOHNSON & JOHNSON</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ABBVIE</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">MSD</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ASTELLAS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">VIATRIS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">BRISTOL MYERS SQUIBB</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">NOVARTIS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">ROCHE</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">SKECHERS</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">GSK</span>
+                            <span class="text-xl font-black tracking-tighter text-gray-400">KENVUE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pt-12 pb-24 bg-[#0b0d0e] border-y border-white/5 relative overflow-hidden" id="skills">
+            <!-- Minimalist Ambient Background -->
+            <div class="absolute inset-0 bg-[#0b0d0e]"></div>
+            <div
+                class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(20,184,184,0.05),_transparent_70%)] animate-pulse-slow">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="text-left md:text-center mb-16 mobile-left-align">
+                    <span class="text-primary text-sm font-bold tracking-[0.3em] uppercase block mb-4" style="">Core
+                        Specifications</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white hover-glitch cursor-default typewriter-target">
+                        SKILLSET</h2>
+                    <div
+                        class="h-1 w-24 bg-gradient-to-r from-transparent via-primary to-transparent mr-auto md:mx-auto mt-6">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Column 1: AI-Enhanced UI/UX Design -->
+                    <div class="capability-card group">
+                        <div class="text-secondary mb-2">
+                            <span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform"
+                                style="text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);">design_services</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold tracking-tight text-white uppercase mb-2">AI-Enhanced UI/UX
+                                Design</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Executing next-gen digital experiences by
+                                merging traditional design craft with AI efficiency:</p>
+                            <div class="mt-2 flex flex-col space-y-1">
+                                <span class="text-gray-400 text-sm">• AI-Driven Prototyping & UX Research</span>
+                                <span class="text-gray-400 text-sm">• High-Fidelity UI & Design Systems</span>
+                                <span class="text-gray-400 text-sm">• Clinical & B2B Interface Logic</span>
+                                <span class="text-gray-400 text-sm">• Interactive User Flow Mapping</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="tag-btn tag-btn-secondary">FIGMA</span>
+                            <span class="tag-btn tag-btn-secondary">AI-DRIVEN</span>
+                            <span class="tag-btn tag-btn-secondary">UX RESEARCH</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Omnichannel Marketing & Creative -->
+                    <div class="capability-card group">
+                        <div class="text-accent mb-2">
+                            <span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform"
+                                style="text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);">campaign</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold tracking-tight text-white uppercase mb-2">Omnichannel Marketing
+                                & Creative</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Designing high-impact brand narratives and
+                                assets across global digital touchpoints:</p>
+                            <div class="mt-2 flex flex-col space-y-1">
+                                <span class="text-gray-400 text-sm">• Social Media & EDM Collaterals</span>
+                                <span class="text-gray-400 text-sm">• Key Visual (KV) Strategy & Design</span>
+                                <span class="text-gray-400 text-sm">• Multichannel Brand Assets</span>
+                                <span class="text-gray-400 text-sm">• Campaign Creative Direction</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="tag-btn"
+                                style="color:#8b5cf6; border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.05);">MARKETING</span>
+                            <span class="tag-btn"
+                                style="color:#8b5cf6; border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.05);">EDMS</span>
+                            <span class="tag-btn"
+                                style="color:#8b5cf6; border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.05);">BRANDING</span>
+                            <span class="tag-btn"
+                                style="color:#8b5cf6; border-color: rgba(139,92,246,0.3); background: rgba(139,92,246,0.05);">ADOBE
+                                SUITE</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Technical Strategy & Automation -->
+                    <div class="capability-card group">
+                        <div class="text-primary mb-2">
+                            <span
+                                class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform glow-text">engineering</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold tracking-tight text-white uppercase mb-2">Technical Strategy &
+                                Automation</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Architecting scalable systems and
+                                leveraging emerging tech for organizational efficiency:</p>
+                            <div class="mt-2 flex flex-col space-y-1">
+                                <span class="text-gray-400 text-sm">• Workflow Automation & AI Pipelines</span>
+                                <span class="text-gray-400 text-sm">• Technical Feasibility & AR Strategy</span>
+                                <span class="text-gray-400 text-sm">• Stakeholder Scoping & R&D</span>
+                                <span class="text-gray-400 text-sm">• Emerging Tech Explorations</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            <span class="tag-btn">AUTOMATION</span>
+                            <span class="tag-btn">AR STRATEGY</span>
+                            <span class="tag-btn">LEADERSHIP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-24 px-4 md:px-10 relative" id="projects">
+            <div class="max-w-6xl mx-auto">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 border-b border-primary/30 pb-6">
+                    <div class="text-left mobile-left-align">
+                        <h2 class="text-primary text-sm font-bold tracking-[0.2em] mb-2 flex items-center gap-2"
+                            style="">
+                            <span class="w-2 h-2 bg-primary animate-heartbeat"></span> MISSION_LOG
+                        </h2>
+                        <h2
+                            class="text-3xl md:text-5xl font-bold text-white hover-glitch cursor-default typewriter-target">
+                            FEATURED PROJECTS</h2>
+                    </div>
+                    <div class="hidden md:block text-right">
+                        <p class="text-xs font-mono text-gray-400" style="">LOADING PROJECTS... [100%]</p>
+                        <p class="text-xs font-mono text-primary" style="">/// SECURE CONNECTION</p>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col md:flex-row items-center w-full gap-4 md:gap-8 mb-12 border-b border-white/10 pb-4">
+                    <button
+                        class="filter-btn w-full md:flex-1 relative px-4 py-2 font-mono text-xs font-bold tracking-[0.2em] border-b-2 border-primary text-primary shadow-[0_4px_10px_-4px_rgba(0,240,255,0.5)] transition-all uppercase"
+                        data-filter="tech-strat">
+                        TECHNICAL STRATEGY — AI & NEW BUSINESS
+                    </button>
+                    <button
+                        class="filter-btn w-full md:flex-1 relative px-4 py-2 font-mono text-xs font-bold tracking-[0.2em] border-b-2 border-transparent text-gray-500 hover:text-white hover:border-white/30 transition-all uppercase"
+                        data-filter="ui-marketing">
+                        UI/UX & MARKETING
+                    </button>
+                    <button
+                        class="filter-btn w-full md:flex-1 relative px-4 py-2 font-mono text-xs font-bold tracking-[0.2em] border-b-2 border-transparent text-gray-500 hover:text-white hover:border-white/30 transition-all uppercase"
+                        data-filter="ar-exp">
+                        AUGMENTED REALITY (AR)
+                    </button>
+                </div>
+                <!-- Project 001: Technical Strategy (Odd - Left) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="tech-strat"
+                    data-desc="Led the Technical Strategy for a browser-based AR framework for MIMS. Developed a high-performance system for medical conferences, integrating Image Tracking, Mechanism of Action (MoA) animations, and 360° Virtual Environments to modernize attendee engagement without native app installations."
+                    data-img="assets/MIMS AR/0cover.png"
+                    data-gallery="assets/MIMS AR/MIMS-AR1.png, assets/MIMS AR/MIMS-AR2.png, assets/MIMS AR/MIMS-AR3.png, assets/MIMS AR/MIMS-AR4.png"
+                    data-tags="Stakeholder Management, Technical Planning, Feasibility Analysis"
+                    data-strategy="Directed the end-to-end technical roadmap and stakeholder alignment. Facilitated communication between medical affairs and marketing to ensure the AR experience met pharmaceutical compliance while driving a new revenue stream."
+                    data-challenge="Operated as the sole technical lead under strict resource limitations. Architected a stable environment capable of triggering complex biological animations while maintaining low-latency performance on mobile browsers across diverse attendee hardware."
+                    data-outcome="Launched a first-of-its-kind AR suite for MIMS, establishing a high-margin digital revenue channel. Created a scalable, low-overhead framework now utilized for rapid deployment across multiple medical conferences."
+                    data-title="MIMS WebAR — Technical Lead: Launch & Revenue Strategy">
+                    <div class="md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-primary/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-primary transition-colors bg-surface-dark aspect-video">
+                            <Image src={mimsArCover} alt="MIMS Augmented Reality Cover" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-primary/50 blur-sm shadow-[0_0_15px_#14b8b8] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col gap-6 md:-ml-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-primary/50 transition-colors text-left">
+                            <h4 class="text-primary text-sm font-bold mb-2 tracking-widest">PROJECT_001</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-primary transition-colors">MIMS
+                                WebAR — Technical Lead: Launch & Revenue Strategy</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Led the Technical Strategy for a
+                                browser-based AR framework for MIMS. Developed a high-performance system for medical
+                                conferences to modernize attendee engagement.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Operational Logic</p>
+                                    <p class="text-xl font-bold text-white">Scalable Template</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Business Impact</p>
+                                    <p class="text-xl font-bold text-white">New Revenue Stream</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Stakeholder
+                                    Management</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Technical
+                                    Planning</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Feasibility
+                                    Analysis</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-primary font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-primary group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 002: AI & Automation (Even - Right) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="tech-strat"
+                    data-desc="Architected a specialized R&D pipeline to accelerate the production cycle of event-based digital assets. Focused on integrating Generative AI (LLMs and Diffusion models) to bridge the gap between abstract project briefs and high-fidelity Key Visual (KV) deployment."
+                    data-img="assets/MIMS Banner/KV Banner Cover.jpg"
+                    data-gallery="assets/MIMS Banner/Banner 1.jpg, assets/MIMS Banner/Banner 2.jpg, assets/MIMS Banner/Banner 3.jpg, assets/MIMS Banner/Banner 4.jpg, assets/MIMS Banner/Banner 5.jpg"
+                    data-tags="Generative AI, LLMs, Workflow Automation"
+                    data-strategy="Architected an automated production framework that standardized AI integration for cross-departmental use. Developed prompting governance to ensure brand consistency while scaling output for global medical events."
+                    data-challenge="Navigated the ambiguity of emerging AI technologies to build a stable, repeatable R&D pipeline. Overcame departmental bottlenecks by automating secondary asset production, allowing the senior creative team to focus on high-value KV refinement."
+                    data-outcome="Engineered a 50% reduction in production lead times. By automating repetitive tasks, I shifted creative focus to high-value KV refinement, doubling total project capacity and reducing operational overhead."
+                    data-title="MIMS Key Visual — Technical Lead: Production R&D & AI Automation">
+                    <div class="order-2 md:order-1 md:col-span-5 flex flex-col gap-6 md:-mr-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-accent/50 transition-colors text-left">
+                            <h4 class="text-accent text-sm font-bold mb-2 tracking-widest">PROJECT_002</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-accent transition-colors">MIMS
+                                Key Visual — Technical Lead: Production R&D</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Architected a specialized R&D pipeline
+                                using Generative AI to accelerate the production cycle of event-based digital
+                                assets.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Operational Logic</p>
+                                    <p class="text-xl font-bold text-white">Automated Pipeline</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Business Impact</p>
+                                    <p class="text-xl font-bold text-white">2x Capacity Scaling</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Generative
+                                    AI</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">LLMs</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Workflow
+                                    Automation</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-accent group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-accent/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-accent transition-colors bg-surface-dark aspect-video">
+                            <Image src={mimsBannerCover} alt="MIMS Banner Key Visual Cover" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-accent/50 blur-sm shadow-[0_0_15px_#8b5cf6] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 003: Neutrogena (Odd - Left) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ui-marketing"
+                    data-desc="Led the creative direction and visual strategy for Neutrogena’s UAE launch, synchronizing large-scale physical branding, social media assets, and custom digital interactions."
+                    data-img="assets/Neutrogena Preview.png"
+                    data-tags="Creative Direction, AI-Driven Asset Workflow, Interactive Prototyping, Marketing"
+                    data-challenge="Navigating extreme timelines that prohibited traditional photoshoots and standard development cycles, requiring a rapid, tech-forward execution strategy."
+                    data-strategy="Engineered an AI-asset pipeline to generate high-fidelity product visuals for print and social. Simultaneously, I designed and built a functional UI/UX game prototype, providing a mechanical blueprint that eliminated technical ambiguity for the dev team."
+                    data-outcome="Secured a multi-year partnership for 2026 and transformed booth engagement through gamified brand education, successfully bridging the gap between physical and digital touchpoints."
+                    data-title="Neutrogena Product Launch"
+                    data-video="assets/Neutrogena Project Modal/Neutrogena Video.mp4"
+                    data-link="https://www.linkedin.com/posts/mims-middle-east_digitalmarketing-healthcare-pharma-activity-7333423096688803840-eYcH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADjtdwkBDwjreDA9AE1Kakddh2o-gPiGCtE"
+                    data-gallery="assets/Neutrogena Project Modal/Neutrogena Post 1.png, assets/Neutrogena Project Modal/Neutrogena Post 2.png, assets/Neutrogena Project Modal/Neutrogena Post 3.png, assets/Neutrogena Project Modal/Neutrogena Post 4.png, assets/Neutrogena Project Modal/Neutrogena Post 5.png">
+                    <div class="md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-red-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-red-500 transition-colors bg-surface-dark aspect-video">
+                            <Image src={neutrogenaPreview} alt="Neutrogena Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-red-500/50 blur-sm shadow-[0_0_15px_#ef4444] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col gap-6 md:-ml-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-red-500/50 transition-colors text-left">
+                            <h4 class="text-red-500 text-sm font-bold mb-2 tracking-widest">PROJECT_003</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-red-500 transition-colors">
+                                Neutrogena Product Launch</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Led the creative direction for
+                                Neutrogena’s UAE launch, synchronizing physical branding with custom digital
+                                interactions.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Production Efficiency</p>
+                                    <p class="text-3xl font-bold text-white">+60%</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Engagement Success</p>
+                                    <p class="text-3xl font-bold text-white">92%</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Creative
+                                    Direction</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">AI-Driven
+                                    Asset Workflow</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Interactive
+                                    Prototyping</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Marketing</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-red-500 font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-red-500 group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 004: Ermes&Co (Even - Right) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ui-marketing"
+                    data-desc="Led the full-stack brand evolution of a legacy trading firm into a premium B2B hospitality partner, aligning their visual identity with Tier-1 clients like Hilton and Marriott."
+                    data-img="assets/Ermes Preview.png"
+                    data-tags="Brand Evolution, AI-Driven Asset Workflow, Digital Strategy, Marketing"
+                    data-challenge="Converting a fragmented catalog of low-resolution supplier photos into a unified luxury aesthetic while maintaining a 'stealth' digital presence hidden from public search engines."
+                    data-strategy="Orchestrated a total visual rebrand using a 'Quiet Luxury' palette and engineered an AI post-production pipeline to upscale and standardize over 100+ product assets. Authored all strategic copy and designed a private, high-fidelity digital brochure for direct sales outreach."
+                    data-outcome="Transformed the brand from a general wholesaler to a specialized luxury authority, reducing asset production time by 60% and providing a high-definition visual anchor for international contract negotiations."
+                    data-title="Ermes&Co — B2B Brand Transformation"
+                    data-video="assets/Ermes Project Modal/Ermes&Co.webm" data-video-order="last"
+                    data-gallery="assets/Ermes Project Modal/Ermes 1.png, assets/Ermes Project Modal/Ermes 2.png, assets/Ermes Project Modal/Ermes 2a.png, assets/Ermes Project Modal/Ermes 3.png"
+                    data-link="https://ermesandco.ae/">
+                    <div class="order-2 md:order-1 md:col-span-5 flex flex-col gap-6 md:-mr-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-green-500/50 transition-colors text-left">
+                            <h4 class="text-green-500 text-sm font-bold mb-2 tracking-widest">PROJECT_004</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-green-500 transition-colors">
+                                Ermes&Co — Brand Transformation</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Led the full-stack brand evolution of a
+                                legacy trading firm into a premium B2B hospitality partner for Tier-1 hotels.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Production Cycle Reduction</p>
+                                    <p class="text-3xl font-bold text-white">60% Faster</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Brand Market Alignment</p>
+                                    <p class="text-xl font-bold text-white">Tier-1 Hospitality</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Brand
+                                    Evolution</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">AI-Driven
+                                    Asset Workflow</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Digital
+                                    Strategy</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Marketing</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-green-500 font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-green-500 group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-green-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-green-500 transition-colors bg-surface-dark aspect-video">
+                            <Image src={ermesPreview} alt="Ermes Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-green-500/50 blur-sm shadow-[0_0_15px_#22c55e] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 005: GoGorilla (Odd - Left) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ui-marketing"
+                    data-desc="Contributed to the UI/UX development of a success-sharing FinTech platform, focusing on the seamless integration of complex 3D motion assets into a high-performance functional interface."
+                    data-img="assets/GoGorilla Preview.png"
+                    data-tags="UI/UX Development, 3D Optimization, AI-Driven Asset Workflow, Marketing"
+                    data-challenge="Balancing high-fidelity visual quality with global accessibility, specifically optimizing for a diverse user base with a significant split between Desktop (67%) and Mobile Web (33%)."
+                    data-strategy="Engineered an FFMPEG compression pipeline via command-line scripting to achieve zero-loss bitrates for 3D video assets. Simultaneously integrated AI workflows for 2D asset generation and collaborated on a lean UI architecture to ensure fast load times."
+                    data-outcome="Contributed to a high-performance build that sustained an average visit duration of 06:16 and a 40% bounce rate, successfully converting 99% of branded search traffic into deep-engagement sessions."
+                    data-title="GoGorilla: FinTech UI/UX" data-video="assets/GoGorilla Project Modal/GoGorillaVid.webm"
+                    data-link="https://www.gogorilla.com/">
+                    <div class="md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-purple-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-purple-500 transition-colors bg-surface-dark aspect-video">
+                            <Image src={gogorillaPreview} alt="GoGorilla Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-purple-500/50 blur-sm shadow-[0_0_15px_#a855f7] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col gap-6 md:-ml-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-purple-500/50 transition-colors text-left">
+                            <h4 class="text-purple-500 text-sm font-bold mb-2 tracking-widest">PROJECT_005</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-purple-500 transition-colors">
+                                GoGorilla: FinTech UI/UX</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Contributed to the UI/UX development of a
+                                success-sharing FinTech platform, integrating complex 3D assets.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Regional Market Reach</p>
+                                    <p class="text-3xl font-bold text-white">+92.62%</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Asset Optimization</p>
+                                    <p class="text-3xl font-bold text-white">+60%</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">UI/UX
+                                    Development</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">3D
+                                    Optimization</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">AI-Driven
+                                    Asset Workflow</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Marketing</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-purple-500 font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-purple-500 group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 006: Hyphens (Even - Right) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ui-marketing"
+                    data-desc="Architected a Clinical Engagement Framework that transformed a static informational blog into a functional medical utility. Engineered a diagnostic pre-consultation tool to bridge the gap between patient self-assessment and clinical medical follow-ups."
+                    data-img="assets/Hyphens Preview.png"
+                    data-tags="Clinical UX, Diagnostic Logic, Data Visualization, Marketing"
+                    data-challenge="Transforming passive, content-heavy environments into high-utility interfaces optimized for professional clinical trust. The challenge was to architect a unified diagnostic journey that delivers medical depth while maintaining a low-friction user funnel."
+                    data-strategy="Engineered a multi-step assessment architecture that automates complex diagnostic logic. Designed a focused UX framework to optimize the direct-to-doctor funnel, successfully shifting user behavior from passive reading to active clinical engagement."
+                    data-outcome="Successfully drove a 4.0x increase in visit frequency per unique user. By optimizing the clinical utility, I maintained a 47.55% bounce rate across a specialized audience, confirming the framework's effectiveness in meeting user intent and driving clinical action."
+                    data-title="Hyphens — Clinical Engagement Framework"
+                    data-video="assets/Hyphens Project Modal/Hyphens.webm" data-video-order="last" data-link="https://www.sunshine-vitamin.com/">
+                    <div class="order-2 md:order-1 md:col-span-5 flex flex-col gap-6 md:-mr-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-blue-500/50 transition-colors text-left">
+                            <h4 class="text-blue-500 text-sm font-bold mb-2 tracking-widest">PROJECT_006</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-blue-500 transition-colors">
+                                Hyphens — Clinical Engagement</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Transformed a static informational blog
+                                into a functional clinical utility. Engineered a Pre-Consultation Tool for
+                                diagnostic patient pathways.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Visit Frequency</p>
+                                    <p class="text-3xl font-bold text-white">4.0x</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Bounce Rate</p>
+                                    <p class="text-3xl font-bold text-white">47.55%</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Clinical
+                                    UX</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Diagnostic
+                                    Logic</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Data
+                                    Visualization</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Marketing</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-blue-500 font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-blue-500 group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-blue-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-blue-500 transition-colors bg-surface-dark aspect-video">
+                            <Image src={hyphensPreview} alt="Hyphens Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-blue-500/50 blur-sm shadow-[0_0_15px_#3b82f6] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 007: MIMS Corp (Odd - Left) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ui-marketing"
+                    data-desc="Architected the Global UI/UX Strategy for a 17-market digital transformation, modernizing enterprise standards across the MIMS Asia-Pacific network. Designed a specialized B2B gateway for pharmaceutical partners and multichannel marketing solutions."
+                    data-img="assets/MIMS preview.png"
+                    data-tags="Enterprise UI, Global Strategy, Responsive Design, Pharma"
+                    data-challenge="Architecting a unified design system for a fragmented legacy network with a high-traffic global audience. The primary challenge was maintaining visual and functional consistency across regional hubs while optimizing for an 86% mobile-majority user base."
+                    data-strategy="Developed a strategic information architecture to modernize B2B engagement and funnel medical communications. Directed the UX roadmap to eliminate navigation friction, optimizing the user journey across 35 international offices and 17 distinct markets."
+                    data-outcome="Delivered a digital transformation that drove a 47.8% traffic increase in key regions. The execution successfully established institutional credibility for the MIMS global portal, managing 43,000+ quarterly visits from pharmaceutical and medical professionals."
+                    data-title="MIMS Corp — Global Enterprise Redesign" data-video="assets/MIMS Project Modal/Mims.webm"
+                    data-video-order="last" data-link="https://corporate.mims.com/">
+                    <div class="md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-red-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-red-500 transition-colors bg-surface-dark aspect-video">
+                            <Image src={mimsPreview} alt="MIMS Corp Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-red-500/50 blur-sm shadow-[0_0_15px_#ef4444] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col gap-6 md:-ml-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-red-500/50 transition-colors text-left">
+                            <h4 class="text-red-500 text-sm font-bold mb-2 tracking-widest">PROJECT_007</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-red-500 transition-colors">
+                                MIMS Corp — Global Enterprise Redesign</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Executed the UI/UX redesign of the MIMS
+                                corporate portal to align with modern enterprise standards across a 17-market
+                                Asia-Pacific network.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Traffic Increase</p>
+                                    <p class="text-3xl font-bold text-white">+47.8%</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Quarterly Visits</p>
+                                    <p class="text-3xl font-bold text-white">43k+</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Enterprise
+                                    UI</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Global
+                                    Strategy</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Responsive
+                                    Design</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Pharma</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-red-500 font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-red-500 group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 008: GSK (Even - Right) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ar-exp"
+                    data-desc="Led the Technical Strategy and execution of a browser-based Spatial UI for a GSK scientific exchange. Developed a high-performance, 360-degree interactive environment to host event data and registration systems without the need for native app installations."
+                    data-img="assets/GSK.png" data-tags="Spatial UI, 360° Tracking, Web-based AR, API Integration"
+                    data-challenge="Architecting a stable 3D environment within the memory limitations of mobile web browsers. The strategy required balancing high-resolution medical branding with low-latency performance to ensure consistent uptime across various attendee hardware configurations."
+                    data-strategy="Developed a zero-friction WebAR strategy to maximize attendee conversion. By choosing a browser-based interactive guide over a native app, I eliminated the technical hurdles that typically cause high user drop-off in event environments."
+                    data-outcome="Directly drove attendee registration by removing app-store friction. Established a repeatable digital framework that GSK now uses as a benchmark for high-performance interactive events."
+                    data-title="GSK Interactive Event Guide — Spatial UI Strategy"
+                    data-video="assets/GSK-AR-Sample.mp4">
+                    <div class="order-2 md:order-1 md:col-span-5 flex flex-col gap-6 md:-mr-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-emerald-500/50 transition-colors text-left">
+                            <h4 class="text-emerald-500 text-sm font-bold mb-2 tracking-widest">PROJECT_008</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-emerald-500 transition-colors">
+                                GSK Interactive Event Guide</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Led the Technical Strategy for a
+                                browser-based Spatial UI, bypassing app-store friction for scientific exchange.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Strategy</p>
+                                    <p class="text-xl font-bold text-white">End-to-End Execution</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Deployment</p>
+                                    <p class="text-xl font-bold text-white">Zero-Install WebAR</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Spatial
+                                    UI</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">360°
+                                    Tracking</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Web-based
+                                    AR</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">API
+                                    Integration</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-emerald-500 font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-emerald-500 group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-emerald-500/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-emerald-500 transition-colors bg-surface-dark aspect-video">
+                            <Image src={gskPreview} alt="GSK AR Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-emerald-500/50 blur-sm shadow-[0_0_15px_#10b981] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 009: Amazon (Odd - Left) -->
+                <div class="project-trigger block group relative grid grid-cols-1 md:grid-cols-12 gap-8 items-center cursor-pointer"
+                    data-category="ar-exp"
+                    data-desc="3D Artist for Amazon’s global Augmented Reality (AR) ecosystem. Optimized footwear modeling workflows and standardized asset delivery protocols for immersive retail environments."
+                    data-img="assets/Amazon.png" data-tags="3D Artist, Workflow Optimization, PBR Texturing, AR Retail"
+                    data-strategy="Implemented systematic optimization workflows for high-volume 3D production. Refined mesh decimation and texture baking protocols to ensure all footwear assets met strict performance benchmarks for mobile AR."
+                    data-challenge="Synchronizing high-fidelity brand accuracy with the technical constraints of the Amazon AR viewer. Focused on reducing asset file sizes while maintaining photorealistic material quality for footwear."
+                    data-outcome="Delivered over 10,000+ optimized 3D assets for global footwear brands. Contributed to a scalable production workflow that improved asset ingestion speed and boosted 'Virtual Try-On' engagement."
+                    data-title="AMAZON PRODUCT AR — 3D Artist & Workflow Optimization"
+                    data-gallery="assets/Amazon Images/Amazon 1 .png, assets/Amazon Images/Amazon 2.png, assets/Amazon Images/Amazon 3.png">
+                    <div class="md:col-span-7 relative z-10">
+                        <div
+                            class="absolute -inset-2 bg-accent/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <div
+                            class="relative rounded-xl overflow-hidden border border-gray-700 group-hover:border-accent transition-colors bg-surface-dark aspect-video">
+                            <Image src={amazonPreview} alt="Amazon AR Project Preview" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105 filter grayscale group-hover:grayscale-0" />
+                            <div
+                                class="absolute inset-0 w-2 h-[120%] -translate-y-[10%] bg-accent/50 blur-sm shadow-[0_0_15px_#8b5cf6] animate-scan-horizontal opacity-0 group-hover:opacity-100 mix-blend-screen pointer-events-none">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="md:col-span-5 flex flex-col gap-6 md:-ml-12 z-20 md:mt-12">
+                        <div
+                            class="bg-[#0b0d0e]/95 backdrop-blur-xl border border-gray-800 p-8 rounded-xl shadow-2xl group-hover:border-accent/50 transition-colors text-left">
+                            <h4 class="text-accent text-sm font-bold mb-2 tracking-widest">PROJECT_009</h4>
+                            <h3 class="text-3xl font-bold text-white mb-4 hover:text-accent transition-colors">
+                                AMAZON PRODUCT AR — 3D Artist & Workflow Optimization</h3>
+                            <p class="text-gray-400 leading-relaxed mb-6">Contributed to Amazon’s global AR
+                                ecosystem as a 3D Artist, specializing in footwear optimization and high-volume
+                                production pipelines.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Asset Volume</p>
+                                    <p class="text-3xl font-bold text-white">10k+ Units</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-400 mb-1">Impact</p>
+                                    <p class="text-xl font-bold text-white">Optimized Delivery</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-2 mb-8">
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">3D
+                                    Artist</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">Workflow
+                                    Optimization</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">PBR
+                                    Texturing</span>
+                                <span
+                                    class="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300">AR
+                                    Retail</span>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors group/link">
+                                <span
+                                    class="border-b border-accent group-hover/link:border-white transition-colors pb-0.5">Discover the Process</span>
+                                <span
+                                    class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="py-24 px-4 md:px-10 border-b border-primary/10 relative overflow-hidden bg-[#0b0d0e]"
+            id="chronicle">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div
+                    class="absolute left-1/4 h-full w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent">
+                </div>
+                <div
+                    class="absolute right-1/4 h-full w-[1px] bg-gradient-to-b from-transparent via-secondary to-transparent">
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="mb-16 mobile-left-align">
+                    <h2 class="text-primary text-sm font-bold tracking-[0.2em] mb-2 flex items-center gap-2" style="">
+                        <span class="w-2 h-2 bg-primary animate-heartbeat"></span> SYSTEM_HISTORY
+                    </h2>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white hover-glitch cursor-default typewriter-target">
+                        CAREER HISTORY</h2>
+                </div>
+                <div class="relative border-l-2 border-primary/20 pl-8 md:pl-12 space-y-16 ml-4 md:ml-0">
+                    <div
+                        class="absolute left-[-1px] top-0 w-[2px] h-full bg-gradient-to-b from-primary via-secondary to-transparent opacity-50 blur-[2px]">
+                    </div>
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-6 h-6 bg-[#0b0d0e] border border-primary rounded-none group-hover:scale-110 transition-transform">
+                            <div class="w-2 h-2 bg-primary group-hover:animate-heartbeat"></div>
+                        </div>
+                        <div
+                            class="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold text-black bg-primary skew-x-[-10deg] shadow-[0_0_10px_rgba(20,184,184,0.5)]">
+                            <span class="inline-block skew-x-[10deg]" style="">[ AUG 2024 // PRESENT ]</span>
+                        </div>
+                        <div
+                            class="p-6 md:p-8 border border-gray-800 bg-surface-dark/50 backdrop-blur-sm hover:border-primary/50 transition-colors relative overflow-hidden group-hover:shadow-neon text-left">
+                            <div
+                                class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-primary text-4xl animate-pixel-drift"
+                                    style="">clinical_notes</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-1" style="">Digital Designer - Regional (SG, HK,
+                                MY, TW, UAE)</h4>
+                            <p class="text-secondary text-sm tracking-widest mb-4 uppercase" style="">MIMS Pte Ltd</p>
+                            <p class="text-gray-400 text-sm leading-relaxed max-w-xl" style="">
+                                Executing multi-brand strategies for global healthcare leaders. Integrated generative AI
+                                workflows (Gemini, ChatGPT) to optimize concept visualization and production speed by
+                                50%. Earned the 2026 MIMS APEX Rising Star Award for innovation.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Amazon: Now Second -->
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-6 h-6 bg-[#0b0d0e] border border-accent rounded-none group-hover:scale-110 transition-transform">
+                            <div class="w-2 h-2 bg-accent group-hover:animate-heartbeat"></div>
+                        </div>
+                        <div
+                            class="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold text-white border border-accent bg-accent/20 skew-x-[-10deg]">
+                            <span class="inline-block skew-x-[10deg]" style="">[ 2022 // 2024 ]</span>
+                        </div>
+                        <div
+                            class="p-6 md:p-8 border border-gray-800 bg-surface-dark/50 backdrop-blur-sm hover:border-accent/50 transition-colors relative overflow-hidden group-hover:shadow-neon-accent text-left">
+                            <div
+                                class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-accent text-4xl animate-pixel-drift"
+                                    style="">3d_rotation</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-1" style="">3D Artist</h4>
+                            <p class="text-gray-500 text-sm tracking-widest mb-4 uppercase" style="">Amazon</p>
+                            <p class="text-gray-400 text-sm leading-relaxed max-w-xl" style="">
+                                Developed high-fidelity 3D assets for Amazon's WebAR platform supporting global brands
+                                (Nike, Adidas). Optimized modeling workflows and texture budgets for real-time web
+                                environments. 2022 Production Awardee.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-6 h-6 bg-[#0b0d0e] border border-secondary rounded-none group-hover:scale-110 transition-transform">
+                            <div class="w-2 h-2 bg-secondary group-hover:animate-heartbeat"></div>
+                        </div>
+                        <div
+                            class="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold text-black bg-secondary skew-x-[-10deg] shadow-[0_0_10px_rgba(217,70,239,0.5)]">
+                            <span class="inline-block skew-x-[10deg]" style="">[ 2024 // CONTRACT ]</span>
+                        </div>
+                        <div
+                            class="p-6 md:p-8 border border-gray-800 bg-surface-dark/50 backdrop-blur-sm hover:border-secondary/50 transition-colors relative overflow-hidden group-hover:shadow-neon-secondary text-left">
+                            <div
+                                class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-secondary text-4xl animate-pixel-drift"
+                                    style="">payments</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-1" style="">UI/UX Designer (Contract)</h4>
+                            <p class="text-primary text-sm tracking-widest mb-4 uppercase" style="">Frontpage
+                                Digital-LTD</p>
+                            <p class="text-gray-400 text-sm leading-relaxed max-w-xl" style="">
+                                Architected end-to-end interfaces for GoGorilla's Fintech platform. Spearheaded asset
+                                performance optimization using FFMPEG for 3D video compression, ensuring
+                                high-performance
+                                web integration.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <div
+                            class="absolute -left-[41px] md:-left-[57px] top-0 flex items-center justify-center w-6 h-6 bg-[#0b0d0e] border border-primary/40 rounded-none group-hover:scale-110 transition-transform">
+                            <div class="w-2 h-2 bg-primary/40 group-hover:animate-heartbeat"></div>
+                        </div>
+                        <div
+                            class="inline-block px-3 py-1 mb-4 text-xs font-mono font-bold text-white border border-white/20 bg-white/5 skew-x-[-10deg]">
+                            <span class="inline-block skew-x-[10deg]" style="">[ 2021 // 2022 ]</span>
+                        </div>
+                        <div
+                            class="p-6 md:p-8 border border-gray-800 bg-surface-dark/50 backdrop-blur-sm hover:border-primary/30 transition-colors relative overflow-hidden group-hover:shadow-neon/20 text-left">
+                            <div
+                                class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
+                                <span class="material-symbols-outlined text-gray-400 text-4xl animate-pixel-drift"
+                                    style="">auto_stories</span>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-1" style="">Webtoon Editor and Designer</h4>
+                            <p class="text-gray-500 text-sm tracking-widest mb-4 uppercase" style="">Iyuno-SDI</p>
+                            <p class="text-gray-400 text-sm leading-relaxed max-w-xl" style="">
+                                Spearheaded layout optimization for Webtoon titles. Managed full production lifecycles
+                                and QA/QC workflows to maintain high-caliber design standards across diverse portfolios.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div
+                    class="border border-primary/30 bg-[#0b0d0e]/80 backdrop-blur rounded-lg p-1 relative overflow-hidden min-h-[380px] md:min-h-[300px]">
+                    <div
+                        class="bg-primary/10 px-4 py-2 flex items-center justify-between border-b border-primary/20 relative z-10">
+                        <span class="text-xs font-mono text-primary flex items-center gap-2" style="">
+                            <span class="w-2 h-2 rounded-full bg-primary animate-heartbeat"></span>
+                            SYSTEM_ACHIEVEMENTS_LOG
+                        </span>
+                        <div class="flex gap-1">
+                            <div class="w-2 h-2 rounded-full bg-gray-600"></div>
+                            <div class="w-2 h-2 rounded-full bg-gray-600"></div>
+                            <div class="w-2 h-2 rounded-full bg-gray-600"></div>
+                        </div>
+                    </div>
+                    <div class="relative w-full h-full">
+                        <!-- Achievement 1 -->
+                        <div class="carousel-slide-1 absolute top-0 left-0 w-full p-8 md:p-12 opacity-100">
+                            <h3 class="text-primary font-mono text-lg mb-4 tracking-tighter">>> MIMS_APEX_RISING_STAR
+                            </h3>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-200 mb-6" style="">
+                                Awarded the <span class="text-primary">Rising Star Award</span> for exceptional
+                                contributions and significant impact on business performance and digital innovation.
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="px-3 py-1 bg-primary/20 border border-primary/50 text-primary text-[10px] font-mono">
+                                    AWARDED: 2026</div>
+                                <div
+                                    class="px-3 py-1 bg-white/5 border border-white/10 text-gray-400 text-[10px] font-mono">
+                                    SECTOR: MEDICAL_MARKETING</div>
+                            </div>
+                        </div>
+                        <!-- Achievement 2 -->
+                        <div class="carousel-slide-2 absolute top-0 left-0 w-full p-8 md:p-12 opacity-0">
+                            <h3 class="text-secondary font-mono text-lg mb-4 tracking-tighter">>>
+                                AMAZON_PRODUCTION_AWARDEE</h3>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-200 mb-6" style="">
+                                Recognized as the <span class="text-secondary">Production Awardee</span> for
+                                outstanding work and dedication, continuously raising the bar for global AR asset
+                                quality.
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="px-3 py-1 bg-secondary/20 border border-secondary/50 text-secondary text-[10px] font-mono">
+                                    AWARDED: 2022</div>
+                                <div
+                                    class="px-3 py-1 bg-white/5 border border-white/10 text-gray-400 text-[10px] font-mono">
+                                    SECTOR: SPATIAL_AR</div>
+                            </div>
+                        </div>
+                        <!-- Achievement 3 -->
+                        <div class="carousel-slide-3 absolute top-0 left-0 w-full p-8 md:p-12 opacity-0">
+                            <h3 class="text-accent font-mono text-lg mb-4 tracking-tighter">>>
+                                PRODUCTION_EFFICIENCY_METRIC</h3>
+                            <p class="text-xl md:text-2xl font-light leading-relaxed text-gray-200 mb-6" style="">
+                                Engineered <span class="text-accent">AI-Driven Production Pipelines</span> that reduced
+                                asset lead times by <span class="text-white font-bold">60%</span> and doubled total
+                                creative capacity across multi-regional campaigns.
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="px-3 py-1 bg-accent/20 border border-accent/50 text-accent text-[10px] font-mono">
+                                    STATUS: OPTIMIZED</div>
+                                <div
+                                    class="px-3 py-1 bg-white/5 border border-white/10 text-gray-400 text-[10px] font-mono">
+                                    SECTOR: AI_AUTOMATION</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+                        <div class="dot-1 w-2 h-2 rounded-full transition-all"></div>
+                        <div class="dot-2 w-2 h-2 rounded-full transition-all"></div>
+                        <div class="dot-3 w-2 h-2 rounded-full transition-all"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer
+            class="relative pt-24 pb-12 px-6 border-t border-primary/30 bg-gradient-to-b from-[#0b0d0e] to-[#050607]"
+            id="contact">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-10 inline-block">
+                    <span class="material-symbols-outlined text-6xl text-primary animate-pulse-slow"
+                        style="">rocket_launch</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight" style="">
+                    Ready to <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+                        style="">Sync?</span>
+                </h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-xl mx-auto" style="">
+                    Currently open for new opportunities and technical creative roles. Let's discuss how my expertise in
+                    AI, AR, and Automation can scale your next project.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-20">
+                    <a class="w-full md:w-auto bg-primary text-background-dark font-bold text-lg px-8 py-4 rounded-none shadow-neon hover:scale-105 transition-transform uppercase tracking-widest flex items-center justify-center gap-2"
+                        href="mailto:eriorion00@gmail.com" style="">
+                        <span class="material-symbols-outlined" style="">mail</span>
+                        TRANSMIT_EMAIL
+                    </a>
+                    <a class="w-full md:w-auto border border-primary text-primary font-bold text-lg px-8 py-4 rounded-none hover:bg-primary/10 transition-colors uppercase tracking-widest flex items-center justify-center gap-2"
+                        href="https://cal.com/ericka-concepcion-hurljz" target="_blank" style="">
+                        <span class="material-symbols-outlined" style="">calendar_month</span>
+                        SCHEDULE_SYNC
+                    </a>
+                </div>
+                <div class="flex flex-col items-center justify-center gap-3 border-t border-gray-800 pt-12 text-center text-sm">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="mb-4 bg-primary/10 text-primary border border-primary/30 hover:bg-primary/50 hover:text-white transition-colors px-4 py-2 rounded-none font-mono text-xs font-bold tracking-widest flex items-center gap-2 z-50 hover:shadow-neon group">
+                        <span class="material-symbols-outlined text-sm group-hover:-translate-y-1 transition-transform">arrow_upward</span>
+                        RETURN_TO_TOP
+                    </button>
+                    <span class="text-gray-500 font-bold uppercase tracking-widest text-xs" style="">System_Status</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-heartbeat"></span>
+                        <span class="text-gray-300" style="">All Systems Operational</span>
+                    </div>
+                    <p class="text-gray-600 text-xs mt-2" style="">© 2026 Ericka CN. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script>
+        // Project Modal Logic (No hash usage to prevent scroll-to-top)
+        const modal = document.getElementById('project-modal');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        document.querySelectorAll('.project-trigger').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const title = trigger.getAttribute('data-title');
+                const img = trigger.getAttribute('data-img');
+                const tags = trigger.getAttribute('data-tags').split(',');
+                const desc = trigger.getAttribute('data-desc');
+                const strategy = trigger.getAttribute('data-strategy');
+
+                document.getElementById('modal-title').innerText = title;
+
+                const assetsContainer = document.getElementById('modal-assets-container');
+                assetsContainer.innerHTML = '';
+
+                // Asset Injection Logic
+                const video = trigger.getAttribute('data-video');
+                const gallery = trigger.getAttribute('data-gallery');
+                const videoOrder = trigger.getAttribute('data-video-order') || 'default';
+
+                const hasVideo = video && video.trim().length > 0;
+                // 1. Preview Image (always first)
+                if (img) {
+                    const imgEl = document.createElement('img');
+                    imgEl.src = img;
+                    imgEl.className = 'w-full object-cover opacity-80 hover:opacity-100 transition-all duration-700 block mb-10 rounded-lg border border-white/5';
+                    assetsContainer.appendChild(imgEl);
+                }
+
+                // 2. Video (if default order)
+                if (video && videoOrder !== 'last') {
+                    const videoEl = document.createElement('video');
+                    videoEl.src = video;
+                    videoEl.controls = true;
+                    videoEl.autoplay = true;
+                    videoEl.muted = true;
+                    videoEl.loop = true;
+                    videoEl.playsInline = true;
+                    videoEl.className = 'w-full aspect-video object-cover opacity-90 hover:opacity-100 transition-all duration-700 block mb-10 rounded-lg border border-primary/30 shadow-[0_0_15px_rgba(20,184,184,0.1)]';
+                    assetsContainer.appendChild(videoEl);
+                }
+
+                // 3. Gallery
+                if (gallery) {
+                    gallery.split(',').forEach(src => {
+                        if (src.trim()) {
+                            const imgEl = document.createElement('img');
+                            imgEl.src = src.trim();
+                            imgEl.className = 'w-full object-cover opacity-80 hover:opacity-100 transition-all duration-700 block mb-10 rounded-lg border border-white/5';
+                            assetsContainer.appendChild(imgEl);
+                        }
+                    });
+                }
+
+                // 4. Video (if last order)
+                if (video && videoOrder === 'last') {
+                    const videoEl = document.createElement('video');
+                    videoEl.src = video;
+                    videoEl.controls = true;
+                    videoEl.autoplay = true;
+                    videoEl.muted = true;
+                    videoEl.loop = true;
+                    videoEl.playsInline = true;
+                    videoEl.className = 'w-full aspect-video object-cover opacity-90 hover:opacity-100 transition-all duration-700 block mt-4 mb-12 rounded-lg border border-primary/30 shadow-[0_0_20px_rgba(20,184,184,0.15)]';
+                    assetsContainer.appendChild(videoEl);
+                }
+
+                // End Marker
+                const endMarker = document.createElement('div');
+                endMarker.className = 'h-32 md:h-64 flex items-center justify-center border-t border-primary/10 mt-8';
+                endMarker.innerHTML = '<span class="text-[10px] text-primary/30 tracking-[0.5em] uppercase">END_OF_MANIFEST</span>';
+                assetsContainer.appendChild(endMarker);
+
+                // Reset and handle scroll indicator
+                const scrollContainer = document.getElementById('modal-scroll-container');
+                const scrollIndicator = document.getElementById('modal-scroll-indicator');
+                if (scrollContainer && scrollIndicator) {
+                    scrollContainer.scrollTop = 0;
+                    scrollIndicator.style.opacity = '1';
+
+                    scrollContainer.onscroll = () => {
+                        const isAtBottom = scrollContainer.scrollHeight - scrollContainer.scrollTop <= scrollContainer.clientHeight + 50;
+                        scrollIndicator.style.opacity = isAtBottom ? '0' : '1';
+                    };
+                }
+
+                document.getElementById('modal-desc').innerText = desc;
+                const execution = trigger.getAttribute('data-execution');
+                const strategyEl = document.getElementById('modal-strategy');
+                if (strategyEl) {
+                    let combinedMethodology = strategy || '';
+                    if (execution) {
+                        combinedMethodology += (combinedMethodology ? '\n\n' : '') + execution;
+                    }
+                    strategyEl.innerText = combinedMethodology || 'Methodology pending formulation.';
+                }
+
+                const challenge = trigger.getAttribute('data-challenge');
+                const challengeEl = document.getElementById('modal-challenge');
+                if (challengeEl) challengeEl.innerText = challenge || '';
+
+                const outcome = trigger.getAttribute('data-outcome');
+                const outcomeEl = document.getElementById('modal-outcome');
+                if (outcomeEl) outcomeEl.innerText = outcome || '';
+
+                const link = trigger.getAttribute('data-link');
+                const ctaLink = document.getElementById('modal-cta-link');
+                if (ctaLink) {
+                    ctaLink.href = link || '#';
+                    ctaLink.style.display = link ? 'inline-block' : 'none';
+                }
+                const tagsContainer = document.getElementById('modal-tags');
+                tagsContainer.innerHTML = '';
+                tags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'px-3 py-1 bg-white/5 border border-white/10 rounded-none text-xs text-gray-300';
+                    span.innerText = tag.trim();
+                    tagsContainer.appendChild(span);
+                });
+                modal.classList.remove('hidden');
+                modal.classList.add('flex', 'active');
+                document.body.classList.add('modal-open');
+            });
+        });
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex', 'active');
+            document.body.classList.remove('modal-open');
+        });
+        // Close modal if clicking outside the glass panel
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex', 'active');
+                document.body.classList.remove('modal-open');
+            }
+        });
+        // Mobile Menu Logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        const toggleMenu = () => {
+            const isOpen = mobileMenu.classList.contains('active');
+            if (isOpen) {
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            } else {
+                mobileMenu.classList.add('active');
+                document.body.classList.add('menu-open');
+            }
+        };
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+        // Kinetic Header Typing Animation Logic
+        const initTypewriter = () => {
+            const headers = document.querySelectorAll('.typewriter-target');
+            const typeEffect = (element) => {
+                if (element.dataset.typed === 'true') return;
+                element.dataset.typed = 'true';
+                const originalText = element.innerText;
+                element.innerText = '';
+                const cursor = document.createElement('span');
+                cursor.className = 'typewriter-cursor';
+                element.appendChild(cursor);
+                let charIndex = 0;
+                const typeSpeed = 50;
+                const typeChar = () => {
+                    if (charIndex < originalText.length) {
+                        const charSpan = document.createElement('span');
+                        charSpan.className = 'char-reveal';
+
+                        // Handle spacing: if the character is a space, use &nbsp;
+                        const currentChar = originalText[charIndex];
+                        if (currentChar === ' ') {
+                            charSpan.innerHTML = '&nbsp;';
+                        } else {
+                            charSpan.textContent = currentChar;
+                        }
+
+                        element.insertBefore(charSpan, cursor);
+
+                        setTimeout(() => {
+                            charSpan.classList.add('active');
+                        }, 50);
+
+                        charIndex++;
+                        setTimeout(typeChar, typeSpeed + (Math.random() * 40));
+                    } else {
+                        setTimeout(() => {
+                            cursor.style.display = 'none';
+                        }, 800);
+                    }
+                };
+
+
+                typeChar();
+            };
+            const observerOptions = {
+                root: null,
+                threshold: 0.2,
+                rootMargin: '0px'
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        typeEffect(entry.target);
+                    }
+                });
+            }, observerOptions);
+            headers.forEach(header => observer.observe(header));
+        };
+        document.addEventListener('DOMContentLoaded', initTypewriter);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-trigger');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Update Active State Visuals
+                    filterButtons.forEach(b => {
+                        b.classList.remove('border-primary', 'text-primary', 'shadow-[0_4px_10px_-4px_rgba(0,240,255,0.5)]');
+                        b.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    btn.classList.add('border-primary', 'text-primary', 'shadow-[0_4px_10px_-4px_rgba(0,240,255,0.5)]');
+                    btn.classList.remove('border-transparent', 'text-gray-500');
+
+                    // Filter Projects
+                    projectCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+
+                        // Smooth transition
+                        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+                        const isHidden = card.getAttribute('data-hidden') === 'true';
+
+                        if (!isHidden && (filter === 'all' || category === filter)) {
+                            card.style.display = 'grid';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Trigger initial filtering state so the default tab applies its limits on load
+            const activeFilter = document.querySelector('.filter-btn.border-primary');
+            if (activeFilter) {
+                activeFilter.click();
+            } else if (filterButtons.length > 0) {
+                filterButtons[0].click();
+            }
+        });
+
+        // Theme Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const html = document.documentElement;
+            const desktopToggle = document.getElementById('theme-toggle-desktop');
+            const desktopIcon = document.getElementById('theme-icon-desktop');
+            const mobileToggle = document.getElementById('theme-toggle-mobile');
+            const mobileText = document.getElementById('mobile-theme-text');
+
+            // Default is dark
+            let isLightMode = false;
+
+            function updateThemeUI() {
+                if (isLightMode) {
+                    html.classList.remove('dark');
+                    html.classList.add('light');
+                    if(desktopIcon) desktopIcon.textContent = 'dark_mode';
+                    if(mobileText) mobileText.textContent = 'LIGHT';
+                } else {
+                    html.classList.remove('light');
+                    html.classList.add('dark');
+                    if(desktopIcon) desktopIcon.textContent = 'light_mode';
+                    if(mobileText) mobileText.textContent = 'DARK';
+                }
+            }
+
+            function toggleTheme() {
+                isLightMode = !isLightMode;
+                updateThemeUI();
+            }
+
+            if (desktopToggle) {
+                desktopToggle.addEventListener('click', toggleTheme);
+            }
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', toggleTheme);
+            }
+        });
+    </script>
+</Layout>
